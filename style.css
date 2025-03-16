@@ -5,6 +5,9 @@ body {
 	background-color: rgb(20, 20, 20);
 	color: white;
 	font-family: "sfpro";
+	background-image: url("/assets/bg-features.jpg");
+	background-repeat: repeat-y;
+	background-size: contain;
 }
 
 /* Hero */
@@ -25,7 +28,7 @@ body {
 	background: rgb(2, 0, 36);
 	background: linear-gradient(
 		0deg,
-		rgba(20, 20, 20, 0.9) 0%,
+		rgba(20, 20, 20, 1) 0%,
 		rgba(0, 0, 0, 0) 100%
 	);
 	position: absolute;
@@ -63,6 +66,7 @@ body {
 	color: transparent;
 	display: inline-block;
 }
+
 @media (max-width: 550px) {
 	button {
 		font-size: 1rem;
@@ -114,31 +118,22 @@ button:active {
 
 /* Features */
 #features {
-	background-image: url("/assets/bg-features.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
 	height: 100vh;
 	width: 100%;
+	padding: 0% 10%;
+	box-sizing: border-box;
+	text-align: center;
+	display: block;
+	position: relative;
+}
+#features .content {
+	position: absolute;
+	left: 0;
+	z-index: 4;
 	padding: 10%;
 	box-sizing: border-box;
 }
-#features-grad {
-	height: 50vh;
-	width: 100%;
-	background: rgb(2, 0, 36);
-	background: linear-gradient(
-		0deg,
-		rgba(0, 0, 0, 0) 0%,
-		rgba(20, 20, 20, 0.9) 100%
-	);
-	position: absolute;
-	top: 100vh;
-	left: 0;
-	display: block;
-	z-index: 2;
-	pointer-events: none;
-}
-#features h1 {
+#features h1.head {
 	background: linear-gradient(
 		209deg,
 		#ea6044 39%,
@@ -147,8 +142,6 @@ button:active {
 		#3f8def 81%
 	);
 	background-size: 200%;
-	background-clip: border-box;
-	background-clip: border-box;
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
@@ -162,6 +155,21 @@ button:active {
 		background-position: 100% 100%;
 	}
 }
+
+#features-grad {
+	height: 50vh;
+	width: 100%;
+	background: rgb(2, 0, 36);
+	background: linear-gradient(
+		180deg,
+		rgba(20, 20, 20, 1) 0%,
+		rgba(0, 0, 0, 0) 100%
+	);
+	position: absolute;
+	left: 0;
+	z-index: 2;
+}
+
 /* Basic grid styling */
 .grid-container {
 	display: grid;
@@ -172,12 +180,23 @@ button:active {
 }
 
 .grid-item {
-	padding: 15px;
-	backdrop-filter: blur(20px);
-	background-color: rgba(200, 200, 200, 0.4);
+	padding: 7.5px;
+	background-color: rgb(20, 20, 20);
+	border: 1px solid white;
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	text-align: center;
+	transition: background-color 250ms ease-in-out;
+}
+
+.grid-item:hover {
+	box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.7);
+	cursor: pointer;
+	background-color: rgb(30, 30, 30);
+}
+
+.grid-item:active {
+	scale: 0.9;
 }
 
 .more-button {
@@ -187,36 +206,64 @@ button:active {
 	color: white;
 	cursor: pointer;
 	border-radius: 8px;
-	padding: 10px;
+	padding: 5px;
+	display: none;
 }
-
 /* Responsiveness for tablet (iPad, split screen on windows) */
 @media (max-width: 1024px) {
+	#features {
+		text-align: center;
+	}
+	#features h1 {
+		font-size: 3vmax;
+	}
+	#features .head {
+		font-size: 8vmax !important;
+	}
 	.grid-container {
 		grid-template-columns: repeat(2, 1fr); /* 2 columns */
 		grid-template-rows: repeat(3, auto); /* 3 rows */
 	}
+	/* Hide even-numbered grid items */
+	.grid-item.hide {
+		display: none;
+	}
 
 	.more-button {
-		grid-column: span 2; /* Make the "More..." button span 2 columns */
+		display: flex;
+		font-size: 2.5vmax;
+		align-items: center;
+		justify-content: center;
+		grid-column: span 2;
 	}
 }
 
 /* Responsiveness for mobile (iPhone) */
 @media (max-width: 600px) {
+	#features h1 {
+		font-size: 7vmax;
+	}
 	.grid-container {
 		grid-template-columns: 1fr; /* 1 column */
 		grid-template-rows: repeat(3, auto); /* 3 rows */
 	}
+	/* Hide even-numbered grid items */
+	/* Hide even-numbered grid items */
+	.grid-item.hide {
+		display: none;
+	}
+
+	.grid-item h1 {
+		font-size: 4vmax !important;
+	}
 
 	.more-button {
-		grid-column: span 1; /* "More..." button stays on one row */
-		margin-top: 10px; /* Add some spacing on top */
+		display: flex;
+		font-size: 3vmax;
+		align-items: center;
+		justify-content: center;
+		grid-column: span 1;
 	}
-}
-
-/* Testimonials (maybe?) */
-#testimonials {
 }
 
 /* Modal for mobile */
@@ -255,4 +302,174 @@ button:active {
 	100% {
 		opacity: 1;
 	}
+}
+
+#logo-top-left {
+	height: 4rem;
+	width: 4rem;
+	display: flex;
+	align-items: center;
+	z-index: 100;
+
+	background: linear-gradient(
+		209deg,
+		#ea6044 20%,
+		#dc5083 40%,
+		#9a6df7 60%,
+		#3f8def 80%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+#navbar {
+	position: fixed;
+	top: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: calc(100vw - 10px);
+	max-width: 500px;
+	height: 6rem;
+
+	display: flex;
+	align-items: center;
+
+	z-index: 100;
+	padding: 0 1.5rem;
+	box-sizing: border-box;
+	backdrop-filter: blur(15px);
+
+	background-color: rgba(20, 20, 20, 0.8);
+	border-radius: 20px;
+	border: 1px solid white;
+
+	transition: all 250ms ease;
+}
+
+#nav-links {
+	display: flex;
+	gap: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#nav-links a {
+	color: white;
+	text-decoration: none;
+	font-family: "sfpro";
+	font-size: medium;
+	transition: color 250ms ease;
+	cursor: pointer;
+}
+
+#nav-links a:hover {
+	color: #99e4ac;
+}
+
+@media screen and (max-width: 500px) {
+	#navbar {
+		left: calc(50%);
+		width: calc(100vw - 20px);
+		transform: translateX(-50%);
+		display: block;
+		text-align: center;
+	}
+	#nav-links {
+		display: none;
+	}
+	#logo-top-left {
+		display: block;
+	}
+	.left {
+		height: 30vh;
+	}
+	.right {
+		height: 70vh;
+	}
+	#logo-top-left {
+		font-size: 1.4rem;
+		text-align: center;
+		overflow: visible;
+		height: unset;
+		width: unset;
+	}
+}
+@media screen and (max-width: 400px) {
+	.left {
+		height: 25vh;
+	}
+	.right {
+		height: 75vh;
+	}
+}
+.divider {
+	display: block;
+	margin-top: auto;
+	height: 1rem;
+	width: 2px;
+	background-color: grey;
+}
+
+#download {
+	height: 100vh;
+	width: 100%;
+	padding: 0% 10%;
+	box-sizing: border-box;
+	text-align: center;
+	position: relative;
+	display: block;
+	clear: both;
+}
+#download .h1-container {
+	height: 50vh;
+	width: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: end;
+	justify-content: center;
+}
+#download h1 {
+	position: relative;
+	bottom: 0;
+	font-size: 10vh;
+	margin: 0;
+	animation: hero-scale 500ms ease-in-out forwards,
+		unblur 750ms ease-in-out forwards, moveBg 5s ease-in-out infinite;
+
+	background: linear-gradient(94deg, #0090f7, #ba62fc);
+	background-size: auto;
+	background-clip: border-box;
+	background-clip: border-box;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	display: inline-block;
+}
+
+#navbar.mobileMenuOpen {
+	height: auto;
+	padding: 1rem 1.5rem;
+}
+
+#navbar.mobileMenuOpen p {
+	font-size: x-large;
+}
+
+#navbar.mobileMenuOpen .divider,
+#navbar.mobileMenuClosing .divider {
+	width: 50%;
+	height: 2px;
+	display: block;
+	margin: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#navbar p {
+	transition: font-size 250ms ease;
 }

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script>
+			let url = location.pathname;
+			if (url !== "/" && url !== "/index.html") {
+				location.replace(`/404?url=${url}`);
+			}
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>HourSync</title>
@@ -26,6 +32,95 @@
 		/>
 	</head>
 	<body>
+		<div id="navbar">
+			<p id="logo-top-left" onclick="expandMinimizeMobile()">HSync</p>
+			<div id="nav-links">
+				<a
+					onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})"
+				>
+					Home
+				</a>
+				<span class="divider"></span>
+				<a
+					onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})"
+				>
+					Features
+				</a>
+				<span class="divider"></span>
+				<a
+					onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth'})"
+				>
+					Download
+				</a>
+			</div>
+			<div id="mobile-expanded" style="display: none">
+				<a
+					onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})"
+				>
+					Home
+				</a>
+				<div class="divider"></div>
+				<a
+					onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})"
+				>
+					Features
+				</a>
+				<div class="divider"></div>
+				<a
+					onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth'})"
+				>
+					Download
+				</a>
+			</div>
+			<script>
+				function expandMinimizeMobile() {
+					if (window.innerWidth > 500) return;
+					if (
+						!document
+							.getElementById("navbar")
+							.classList.contains("mobileMenuOpen")
+					) {
+						document.getElementById(
+							"mobile-expanded"
+						).style.opacity = "0";
+						document.getElementById(
+							"mobile-expanded"
+						).style.display = "block";
+
+						document
+							.getElementById("navbar")
+							.classList.add("mobileMenuOpen");
+						document.getElementById("mobile-expanded").animate(
+							{
+								opacity: 1,
+							},
+							{ duration: 250, easing: "ease", fill: "forwards" }
+						);
+					} else {
+						document.getElementById("mobile-expanded").animate(
+							{
+								opacity: 0,
+							},
+							{ duration: 250, easing: "ease", fill: "forwards" }
+						);
+						document
+							.getElementById("navbar")
+							.classList.add("mobileMenuClosing");
+						setTimeout(() => {
+							document
+								.getElementById("navbar")
+								.classList.remove("mobileMenuOpen");
+							document.getElementById(
+								"mobile-expanded"
+							).style.display = "none";
+							document
+								.getElementById("navbar")
+								.classList.remove("mobileMenuClosing");
+						}, 125);
+					}
+				}
+			</script>
+		</div>
 		<div id="hero">
 			<div class="h1-container">
 				<h1>HourSync</h1>
@@ -47,11 +142,8 @@
 						>
 							Get URL
 						</button>
-						<button
-							class="secondary"
-							onclick="window.open('https://github.com/npxrc/HourSync')"
-						>
-							View on GitHub
+						<button class="secondary" onclick="scrollDown()">
+							Learn More
 						</button>
 						<script>
 							let isMobile = false;
@@ -62,24 +154,64 @@
 							);
 
 							function resizeCheck() {
-								if (window.innerWidth < 550) {
+								if (window.innerWidth < 500) {
 									if (isMobile) return;
 									isMobile = true;
 									document
-										.querySelector(".geturl")
-										.attributes.removeNamedItem("hidden");
+										.querySelectorAll(".geturl")
+										.forEach((elem) =>
+											elem.attributes.removeNamedItem(
+												"hidden"
+											)
+										);
 									document
-										.querySelector(".download")
-										.setAttribute("hidden", "");
+										.querySelectorAll(".download")
+										.forEach((elem) =>
+											elem.setAttribute("hidden", "")
+										);
 								} else {
 									if (!isMobile) return;
 									isMobile = false;
 									document
-										.querySelector(".geturl")
-										.setAttribute("hidden", "");
+										.querySelectorAll(".download")
+										.forEach((elem) =>
+											elem.attributes.removeNamedItem(
+												"hidden"
+											)
+										);
 									document
-										.querySelector(".download")
-										.attributes.removeNamedItem("hidden");
+										.querySelectorAll(".geturl")
+										.forEach((elem) =>
+											elem.setAttribute("hidden", "")
+										);
+									document
+										.getElementById("mobile-expanded")
+										.animate(
+											{
+												opacity: 0,
+											},
+											{
+												duration: 250,
+												easing: "ease",
+												fill: "forwards",
+											}
+										);
+									document
+										.getElementById("navbar")
+										.classList.add("mobileMenuClosing");
+									setTimeout(() => {
+										document
+											.getElementById("navbar")
+											.classList.remove("mobileMenuOpen");
+										document.getElementById(
+											"mobile-expanded"
+										).style.display = "none";
+										document
+											.getElementById("navbar")
+											.classList.remove(
+												"mobileMenuClosing"
+											);
+									}, 125);
 								}
 							}
 							function showURL() {
@@ -91,7 +223,7 @@
 
 								div.classList.add("modal");
 								cont.classList.add("container");
-								h1.innerHTML = "www.t.ly/99mRK";
+								h1.innerHTML = "www.t.ly/9giUO";
 								p.innerHTML =
 									"Navigate to this URL on your district-issued device to continue with the installation of HourSync!";
 
@@ -134,59 +266,178 @@
 							function create(e) {
 								return document.createElement(e);
 							}
+							function scrollDown() {
+								document
+									.querySelector("#features")
+									.scrollIntoView({
+										behavior: "smooth",
+									});
+							}
 						</script>
 					</span>
 				</div>
 			</div>
 		</div>
+
 		<div id="features">
-			<h1>All the Magic</h1>
-			<div class="grid-container">
-				<div class="grid-item">
-					Modern Design: HourSync is designed to be modern and
-					user-friendly. It's built on the WinUI 3 framework, so you
-					can blame Microsoft if the apps overall design isn't to your
-					standards.
-				</div>
-				<div class="grid-item">
-					Compatible with Accessibility Themes: HourSync is compatible
-					with Windows' accessibility themes, so it's actually usable
-					if you have impaired vision or need a contrast theme to
-					differentiate items.
-				</div>
-				<div class="grid-item">
-					Drafts: We all know the pain of submitting a lengthy eHours
-					request, only to have it lost since you were signed out.
-					HourSync saves your progress as you go, so you can come back
-					to it later.
-				</div>
-				<div class="grid-item">
-					Automatic Re-login: HourSync will automatically sign you
-					back in if you're signed out, so you don't have to worry
-					about losing your progress.
-				</div>
-				<div class="grid-item">
-					ChatGPT Sidebar: HourSync has a built-in ChatGPT sidebar
-					when submitting eHour requests, so it becomes a breeze to
-					write a description of your eHours.
-				</div>
-				<div class="grid-item">
-					Improved Image Viewer: HourSync has an improved image
-					viewer, so you can see your uploaded images in a new window,
-					and your images are not stretched to oblivion.
-				</div>
-				<div class="grid-item more-button">More...</div>
-			</div>
-
 			<div id="features-grad"></div>
-		</div>
-		<!-- <div id="testimonials"></div> -->
+			<div class="content">
+				<h1 class="head">Pure Magic</h1>
+				<div class="grid-container">
+					<div class="grid-item hide">
+						<h1>Modern</h1>
+						<p>
+							HourSync is designed to be modern and user-friendly.
+							It's built on the WinUI 3 framework, so you can
+							blame Microsoft if the apps overall design isn't to
+							your standards.
+						</p>
+					</div>
+					<div class="grid-item hide">
+						<h1>Accessible</h1>
+						<p>
+							HourSync is compatible with Windows' accessibility
+							themes, so it's actually usable if you have impaired
+							vision or need a contrast theme to differentiate
+							items.
+						</p>
+					</div>
+					<div class="grid-item">
+						<h1>Draft Saving</h1>
+						<p>
+							We all know the pain of submitting a lengthy eHours
+							request, only to have it lost since you were signed
+							out. HourSync saves your progress as you go, so you
+							can come back to it later.
+						</p>
+					</div>
+					<div class="grid-item hide">
+						<h1>Image Viewer</h1>
+						<p>
+							HourSync has an improved image viewer, so you can
+							see your uploaded images in a new window, and your
+							images are not stretched to oblivion.
+						</p>
+					</div>
+					<div class="grid-item">
+						<h1>AI Magic</h1>
+						<p>
+							HourSync has a built-in ChatGPT sidebar when
+							submitting eHour requests, so it becomes a breeze to
+							write a description of your eHours.
+						</p>
+					</div>
+					<div class="grid-item last hide">
+						<h1>Automatic Re-login</h1>
+						<p>
+							HourSync will automatically sign you back in if
+							you're signed out, so you don't have to worry about
+							losing your progress.
+						</p>
+					</div>
+					<div class="grid-item more-button"><p>View all...</p></div>
+				</div>
+				<script>
+					document.addEventListener("DOMContentLoaded", () => {
+						const tiltContainers =
+							document.querySelectorAll(".grid-item");
+						let isMouseMoving = false;
 
-		<script>
-			let url = location.pathname;
-			if (url !== "/" && url !== "/index.html") {
-				location.replace(`/404?url=${url}`);
-			}
-		</script>
+						tiltContainers.forEach((container) => {
+							container.style.transition = "all 250ms ease";
+							container.style.willChange = "transform"; // Suggest to the browser that transform is changing frequently
+
+							let tiltX = 0;
+							let tiltY = 0;
+
+							container.addEventListener("mousemove", (e) => {
+								isMouseMoving = true;
+
+								// Calculate tilt effect
+								const rect = container.getBoundingClientRect();
+								const x = e.clientX - rect.left;
+								const y = e.clientY - rect.top;
+								const centerX = rect.width / 2;
+								const centerY = rect.height / 2;
+
+								tiltX = ((centerY - y) / centerY) * 20; // Adjust the multiplier for tilt effect
+								tiltY = ((x - centerX) / centerX) * 20; // Adjust the multiplier for tilt effect
+
+								// Scale the hovered container
+								tiltContainers.forEach((otherContainer) => {
+									if (otherContainer === container) {
+										otherContainer.style.transform = `scale(1.1) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+									} else {
+										otherContainer.style.transform =
+											"scale(0.95)";
+									}
+								});
+							});
+
+							container.addEventListener("mouseleave", () => {
+								// Reset all containers' transforms when mouse leaves
+								tiltContainers.forEach((cont) => {
+									cont.style.transform =
+										"scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)";
+								});
+								isMouseMoving = false;
+							});
+
+							// Use requestAnimationFrame for smoother transitions
+							function animate() {
+								if (isMouseMoving) {
+									requestAnimationFrame(animate);
+								}
+							}
+							animate(); // Start the animation loop
+						});
+
+						const heroDiv = document.querySelector("#hero div");
+						const scrollPosition = window.scrollY;
+						const heroHeight =
+							document.querySelector("#hero").offsetHeight;
+						const offset = window.innerHeight / 10;
+
+						// Update the top property of the hero div
+						heroDiv.style.top = `${scrollPosition + offset - 50}px`;
+
+						// Adjust the opacity or z-index based on scroll position
+						if (scrollPosition >= heroHeight) {
+							heroDiv.style.zIndex = "0"; // Let the next sections come over
+							heroDiv.style.opacity = "0"; // Optional: make it disappear as you scroll
+						} else {
+							heroDiv.style.zIndex = "1"; // Keep it on top of the hero
+							heroDiv.style.opacity = "1"; // Make it fully visible
+						}
+					});
+				</script>
+			</div>
+		</div>
+
+		<div id="download">
+			<div class="h1-container">
+				<h1>Ready to Go?</h1>
+			</div>
+			<div id="download-grad">
+				<div class="content">
+					<p>Download HourSync for Windows using the link below.</p>
+					<span>
+						<button
+							class="primary download"
+							onclick="window.open('https://hoursync.net/download/')"
+						>
+							Download
+						</button>
+						<button
+							class="primary geturl"
+							onclick="showURL()"
+							hidden
+						>
+							Get URL
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
