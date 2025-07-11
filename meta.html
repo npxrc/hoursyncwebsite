@@ -1,0 +1,226 @@
+<!-- This file is used to generate the meta.png image -->
+<!-- Size was 1200x627 -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="font.css" />
+		<style>
+			* {
+				font-family: "sfpro";
+			}
+			html,
+			body {
+				background: black;
+				color: white;
+				padding: 0;
+				margin: 0;
+				overflow-x: hidden;
+				height: 627px;
+				width: 1200px;
+			}
+			section {
+				height: 100%;
+				width: 100%;
+				display: block;
+				box-sizing: border-box;
+
+				padding: 5vw;
+				background-color: black;
+			}
+
+			@property --gradient-angle {
+				syntax: "<angle>";
+				initial-value: 0deg;
+				inherits: false;
+			}
+
+			@keyframes rotation {
+				0% {
+					--gradient-angle: 0deg;
+				}
+				20% {
+					--gradient-angle: 80deg;
+				}
+				30% {
+					--gradient-angle: 100deg;
+				}
+				40% {
+					--gradient-angle: 160deg;
+				}
+				60% {
+					--gradient-angle: 200deg;
+				}
+				70% {
+					--gradient-angle: 260deg;
+				}
+				80% {
+					--gradient-angle: 280deg;
+				}
+				100% {
+					--gradient-angle: 360deg;
+				}
+			}
+
+			#hero {
+				margin-top: 1vh;
+				margin-left: 0.5vw;
+				height: 98%;
+				width: 99%;
+
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+
+				background-image: url("/assets/site-bg.webp");
+				background-size: 100% 100%;
+				transition: background-size 500ms ease;
+				animation: scaleBg 1s ease-out;
+
+				border-radius: 0 0 2.5rem 2.5rem;
+			}
+			#hero,
+			#hero > * {
+				overflow: hidden;
+			}
+			.border {
+				top: 0;
+				left: 0;
+				margin: 0;
+				height: 100%;
+				width: 100%;
+
+				position: absolute;
+				z-index: 10;
+				border-radius: 2.5rem;
+				box-sizing: border-box;
+				padding: 5px;
+
+				background: conic-gradient(
+					from var(--gradient-angle),
+					#ea6044,
+					#dc5083,
+					#9a6df7,
+					#3f8def,
+					#ea6044
+				);
+				animation: rotation 5s linear infinite;
+
+				-webkit-mask: linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
+				mask: linear-gradient(#fff 0 0) content-box,
+					linear-gradient(#fff 0 0);
+				-webkit-mask-composite: xor;
+				mask-composite: exclude;
+				pointer-events: none;
+			}
+
+			@keyframes scaleBg {
+				from {
+					background-size: 100% 200%;
+				}
+				to {
+					background-size: 100% 100%;
+				}
+			}
+			h1 {
+				font-size: 7.5vw;
+				margin: 0;
+			}
+			.bgGradMove {
+				background: linear-gradient(
+					209deg,
+					#ea6044 39%,
+					#dc5083 50%,
+					#9a6df7 67%,
+					#3f8def 81%
+				);
+				background-size: 200%;
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+				animation: h1BgMove 4s infinite ease-in-out;
+			}
+
+			@keyframes h1BgMove {
+				50% {
+					background-position: 100% 100%;
+				}
+			}
+
+			@media screen and (max-width: 1000px) {
+				#hero {
+					background-size: 100% 200%;
+					animation: none;
+				}
+				h1 {
+					font-size: 10vw;
+					margin: 0;
+				}
+				.feature {
+					max-width: 80%;
+				}
+			}
+			@media screen and (max-width: 750px) {
+				h1 {
+					font-size: 15vw;
+					margin: 0;
+				}
+			}
+			@media screen and (max-width: 450px) {
+				h1 {
+					font-size: 10vh;
+					margin: 0;
+					max-width: 100%;
+				}
+				h1.notAsBig {
+					font-size: 8vh;
+					max-width: 100%;
+				}
+				.feature_content,
+				.feature_image {
+					max-width: 100%;
+					width: 100%;
+					display: block;
+				}
+			}
+			@media screen and (max-width: 400px) {
+				h1 {
+					font-size: 4rem;
+					margin: 0;
+					max-width: 100%;
+				}
+				h1.notAsBig {
+					font-size: 4rem;
+					max-width: 100%;
+				}
+			}
+
+			@media screen and (max-width: 350px) {
+				h1 {
+					font-size: 3rem;
+				}
+				h1.notAsBig {
+					font-size: 2.5rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<section id="hero">
+			<div class="border"></div>
+			<div class="heromain">
+				<h1>HourSync</h1>
+				<p style="font-size: 1.5rem">
+					A <b class="bgGradMove">modern</b> way to submit eHours.
+					Built for your future.
+				</p>
+				<br />
+			</div>
+		</section>
+	</body>
+</html>
