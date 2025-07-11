@@ -32,278 +32,52 @@
 		/>
 	</head>
 	<body>
-		<div id="navbar">
-			<p id="logo-top-left" onclick="expandMinimizeMobile()">HSync</p>
-			<div id="nav-links">
-				<a
-					onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})"
-				>
-					Home
-				</a>
-				<span class="divider"></span>
-				<a
-					onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})"
-				>
-					Features
-				</a>
-				<span class="divider"></span>
-				<a
-					onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth'})"
-				>
-					Download
-				</a>
-			</div>
-			<div id="mobile-expanded" style="display: none">
-				<a
-					onclick="document.getElementById('hero').scrollIntoView({behavior: 'smooth'})"
-				>
-					Home
-				</a>
-				<div class="divider"></div>
-				<a
-					onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})"
-				>
-					Features
-				</a>
-				<div class="divider"></div>
-				<a
-					onclick="document.getElementById('download').scrollIntoView({behavior: 'smooth'})"
-				>
-					Download
-				</a>
-			</div>
-			<script>
-				function expandMinimizeMobile() {
-					if (window.innerWidth > 500) return;
-					if (
-						!document
-							.getElementById("navbar")
-							.classList.contains("mobileMenuOpen")
-					) {
-						document.getElementById(
-							"mobile-expanded"
-						).style.opacity = "0";
-						document.getElementById(
-							"mobile-expanded"
-						).style.display = "block";
-
-						document
-							.getElementById("navbar")
-							.classList.add("mobileMenuOpen");
-						document.getElementById("mobile-expanded").animate(
-							{
-								opacity: 1,
-							},
-							{ duration: 250, easing: "ease", fill: "forwards" }
-						);
-					} else {
-						document.getElementById("mobile-expanded").animate(
-							{
-								opacity: 0,
-							},
-							{ duration: 250, easing: "ease", fill: "forwards" }
-						);
-						document
-							.getElementById("navbar")
-							.classList.add("mobileMenuClosing");
-						setTimeout(() => {
-							document
-								.getElementById("navbar")
-								.classList.remove("mobileMenuOpen");
-							document.getElementById(
-								"mobile-expanded"
-							).style.display = "none";
-							document
-								.getElementById("navbar")
-								.classList.remove("mobileMenuClosing");
-						}, 125);
-					}
-				}
-			</script>
-		</div>
-		<div id="hero">
-			<div class="h1-container">
+		<!-- first we want to have a hero -->
+		<section id="hero">
+			<div class="border mainBorder"></div>
+			<div class="bigMainFade"></div>
+			<div class="heromain">
 				<h1>HourSync</h1>
+				<p>
+					A <b class="bgGradMove">modern</b> way to submit eHours.
+					Built for your future.
+				</p>
+				<br />
+				<button
+					class="downloadButton"
+					onclick="location.href='https://hoursync.net/download'"
+				>
+					<div class="border"></div>
+					<span class="buttonText">Download</span>
+				</button>
 			</div>
-			<div id="hero-grad">
-				<div class="content">
-					<p>A modern way to submit eHours. Built for your future.</p>
-					<span>
-						<button
-							class="primary download"
-							onclick="window.open('https://hoursync.net/download/')"
-						>
-							Download
-						</button>
-						<button
-							class="primary geturl"
-							onclick="showURL()"
-							hidden
-						>
-							Get URL
-						</button>
-						<button class="secondary" onclick="scrollDown()">
-							Learn More
-						</button>
-						<script>
-							let isMobile = false;
-							window.addEventListener("resize", resizeCheck);
-							window.addEventListener(
-								"DOMContentLoaded",
-								resizeCheck
-							);
-
-							function resizeCheck() {
-								if (window.innerWidth < 500) {
-									if (isMobile) return;
-									isMobile = true;
-									document
-										.querySelectorAll(".geturl")
-										.forEach((elem) =>
-											elem.attributes.removeNamedItem(
-												"hidden"
-											)
-										);
-									document
-										.querySelectorAll(".download")
-										.forEach((elem) =>
-											elem.setAttribute("hidden", "")
-										);
-								} else {
-									if (!isMobile) return;
-									isMobile = false;
-									document
-										.querySelectorAll(".download")
-										.forEach((elem) =>
-											elem.attributes.removeNamedItem(
-												"hidden"
-											)
-										);
-									document
-										.querySelectorAll(".geturl")
-										.forEach((elem) =>
-											elem.setAttribute("hidden", "")
-										);
-									document
-										.getElementById("mobile-expanded")
-										.animate(
-											{
-												opacity: 0,
-											},
-											{
-												duration: 250,
-												easing: "ease",
-												fill: "forwards",
-											}
-										);
-									document
-										.getElementById("navbar")
-										.classList.add("mobileMenuClosing");
-									setTimeout(() => {
-										document
-											.getElementById("navbar")
-											.classList.remove("mobileMenuOpen");
-										document.getElementById(
-											"mobile-expanded"
-										).style.display = "none";
-										document
-											.getElementById("navbar")
-											.classList.remove(
-												"mobileMenuClosing"
-											);
-									}, 125);
-								}
-							}
-							function showURL() {
-								let div = create("div");
-								let cont = create("div");
-								let h1 = create("h1");
-								let p = create("p");
-								let button = create("button");
-
-								div.classList.add("modal");
-								cont.classList.add("container");
-								h1.innerHTML = "www.t.ly/9giUO";
-								p.innerHTML =
-									"Navigate to this URL on your district-issued device to continue with the installation of HourSync!";
-
-								button.addEventListener("click", closeModal);
-								button.innerHTML = "Okay";
-
-								cont.append(h1);
-								cont.append(p);
-								cont.append(button);
-								div.append(cont);
-
-								document.body.append(div);
-
-								// Trigger the transition
-								setTimeout(() => {
-									blur.style.opacity = "1"; // Fade-in the blur with opacity
-									blur.style.backdropFilter = "blur(0px)"; // Remove the blur smoothly
-								}, 0);
-							}
-
-							function closeModal() {
-								let modal = document.querySelector(".modal");
-
-								modal.classList.add("closing");
-								modal.animate(
-									{
-										opacity: 0,
-									},
-									{
-										duration: 250,
-										easing: "ease",
-										fill: "forwards",
-									}
-								);
-								setTimeout(() => {
-									modal.remove();
-								}, 250);
-							}
-
-							function create(e) {
-								return document.createElement(e);
-							}
-							function scrollDown() {
-								document
-									.querySelector("#features")
-									.scrollIntoView({
-										behavior: "smooth",
-									});
-							}
-						</script>
-					</span>
+		</section>
+		<section id="features" style="height: auto">
+			<h1 class="notAsBig">
+				<b class="bgGradMove" style="display: inline">Boost</b> your
+				productivity
+				<b style="display: inline; font-weight: 400; font-size: 1rem"
+					>◊</b
+				>
+			</h1>
+			<br />
+			<div class="feature">
+				<h2>Auto Login</h2>
+				<div class="feature_flex">
+					<div class="feature_content">
+						<p>
+							HourSync works with the eHours portal just as
+							ClassLink works with Canvas, Flex, and StudentVue.
+							Sign in once and HourSync will sign you in
+							automatically. Every time.†
+						</p>
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div id="features">
-			<div id="features-grad"></div>
-			<div class="content">
-				<h1 class="head">Pure Magic</h1>
-				<div class="grid-container">
-					<div class="grid-item hide">
-						<h1>Modern</h1>
-						<p>
-							HourSync is designed to be modern and user-friendly.
-							It's built on the WinUI 3 framework, so you can
-							blame Microsoft if the apps overall design isn't to
-							your standards.
-						</p>
-					</div>
-					<div class="grid-item hide">
-						<h1>Accessible</h1>
-						<p>
-							HourSync is compatible with Windows' accessibility
-							themes, so it's actually usable if you have impaired
-							vision or need a contrast theme to differentiate
-							items.
-						</p>
-					</div>
-					<div class="grid-item">
-						<h1>Draft Saving</h1>
+			<div class="feature">
+				<h2>Drafts</h2>
+				<div class="feature_flex">
+					<div class="feature_content">
 						<p>
 							We all know the pain of submitting a lengthy eHours
 							request, only to have it lost since you were signed
@@ -311,133 +85,55 @@
 							can come back to it later.
 						</p>
 					</div>
-					<div class="grid-item hide">
-						<h1>Image Viewer</h1>
-						<p>
-							HourSync has an improved image viewer, so you can
-							see your uploaded images in a new window, and your
-							images are not stretched to oblivion.
-						</p>
+					<div class="feature_image">
+						<img src="./featurescontent/drafts.png" alt="" />
 					</div>
-					<div class="grid-item">
-						<h1>AI Magic</h1>
-						<p>
-							HourSync has a built-in ChatGPT sidebar when
-							submitting eHour requests, so it becomes a breeze to
-							write a description of your eHours.
-						</p>
-					</div>
-					<div class="grid-item last hide">
-						<h1>Automatic Re-login</h1>
-						<p>
-							HourSync will automatically sign you back in if
-							you're signed out, so you don't have to worry about
-							losing your progress.
-						</p>
-					</div>
-					<div class="grid-item more-button"><p>View all...</p></div>
-				</div>
-				<script>
-					document.addEventListener("DOMContentLoaded", () => {
-						const tiltContainers =
-							document.querySelectorAll(".grid-item");
-						let isMouseMoving = false;
-
-						tiltContainers.forEach((container) => {
-							container.style.transition = "all 250ms ease";
-							container.style.willChange = "transform"; // Suggest to the browser that transform is changing frequently
-
-							let tiltX = 0;
-							let tiltY = 0;
-
-							container.addEventListener("mousemove", (e) => {
-								isMouseMoving = true;
-
-								// Calculate tilt effect
-								const rect = container.getBoundingClientRect();
-								const x = e.clientX - rect.left;
-								const y = e.clientY - rect.top;
-								const centerX = rect.width / 2;
-								const centerY = rect.height / 2;
-
-								tiltX = ((centerY - y) / centerY) * 20; // Adjust the multiplier for tilt effect
-								tiltY = ((x - centerX) / centerX) * 20; // Adjust the multiplier for tilt effect
-
-								// Scale the hovered container
-								tiltContainers.forEach((otherContainer) => {
-									if (otherContainer === container) {
-										otherContainer.style.transform = `scale(1.1) perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-									} else {
-										otherContainer.style.transform =
-											"scale(0.95)";
-									}
-								});
-							});
-
-							container.addEventListener("mouseleave", () => {
-								// Reset all containers' transforms when mouse leaves
-								tiltContainers.forEach((cont) => {
-									cont.style.transform =
-										"scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)";
-								});
-								isMouseMoving = false;
-							});
-
-							// Use requestAnimationFrame for smoother transitions
-							function animate() {
-								if (isMouseMoving) {
-									requestAnimationFrame(animate);
-								}
-							}
-							animate(); // Start the animation loop
-						});
-
-						const heroDiv = document.querySelector("#hero div");
-						const scrollPosition = window.scrollY;
-						const heroHeight =
-							document.querySelector("#hero").offsetHeight;
-						const offset = window.innerHeight / 10;
-
-						// Update the top property of the hero div
-						heroDiv.style.top = `${scrollPosition + offset - 50}px`;
-
-						// Adjust the opacity or z-index based on scroll position
-						if (scrollPosition >= heroHeight) {
-							heroDiv.style.zIndex = "0"; // Let the next sections come over
-							heroDiv.style.opacity = "0"; // Optional: make it disappear as you scroll
-						} else {
-							heroDiv.style.zIndex = "1"; // Keep it on top of the hero
-							heroDiv.style.opacity = "1"; // Make it fully visible
-						}
-					});
-				</script>
-			</div>
-		</div>
-
-		<div id="download">
-			<div class="h1-container">
-				<h1>Ready to Go?</h1>
-			</div>
-			<div id="download-grad">
-				<div class="content">
-					<p>Download HourSync for Windows using the link below.</p>
-					<span>
-						<button
-							class="primary download"
-							onclick="window.open('https://hoursync.net/download/')"
-						>
-							Download
-						</button>
-						<button
-							class="primary geturl"
-							onclick="showURL()"
-							hidden
-						>
-							Get URL
-						</button>
-					</span>
 				</div>
 			</div>
+			<div class="feature" style="border: none">
+				<div
+					class="border"
+					style="border-radius: 20px; padding: 3px"
+				></div>
+				<h2 class="bgGradMove">AI Assistant ‡</h2>
+				<div class="feature_flex">
+					<div class="feature_content">
+						<p>
+							HourSync has an optional, built-in AI sidebar of
+							your choice when submitting eHour requests, so it
+							becomes a breeze to write a description of your
+							eHours.
+						</p>
+					</div>
+					<div class="feature_image">
+						<img src="featurescontent/aiAssistant.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div
+			id="footer"
+			style="
+				max-width: 980px;
+				margin: auto;
+				opacity: 0.4;
+				padding: 20px;
+				box-sizing: border-box;
+			"
+		>
+			◊ Feature images enlarged to showcase feature itself.
+			<br />
+			<br />
+			† Before HourSync automatically signs you in, you must log into the
+			app once. User credentials are stored in the Windows Credential
+			Store. Can't believe I have to say this but your credentials have to
+			be correct for HourSync to automatically sign you in. If you change
+			your password, you must sign into HourSync again to update your
+			credentials.
+			<br />
+			<br />
+			‡ AI Assistant coming in a future update.
 		</div>
 	</body>
 </html>

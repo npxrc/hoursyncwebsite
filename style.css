@@ -1,139 +1,198 @@
+/* ===== GLOBAL STYLES ===== */
+* {
+	font-family: "sfpro";
+}
 html,
 body {
-	margin: 0;
-	padding: 0;
-	background-color: rgb(20, 20, 20);
+	background: black;
 	color: white;
-	font-family: "sfpro";
-	background-image: url("/assets/bg-features.jpg");
-	background-repeat: repeat-y;
-	background-size: contain;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
 }
 
-/* Hero */
-
-#hero {
-	background-image: url("/assets/bg.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+/*===== LAYOUT COMPONENTS ===== */
+section {
 	height: 100vh;
-	width: 100%;
-	padding: 0% 10%;
+	width: 100vw;
+	display: block;
 	box-sizing: border-box;
+	padding: 5vw;
+	background-color: black;
+}
+
+/* ===== HERO SECTION ===== */
+#hero {
+	margin-top: 1vh;
+	margin-left: 0.5vw;
+	height: 98vh;
+	width: 99vw;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	text-align: center;
+	background-image: url("/assets/site-bg.webp");
+	background-size: 100% 100%;
+	transition: background-size 500ms ease;
+	animation: scaleBg 1s ease-out;
+	border-radius: 0 0 2.5rem 2.5rem;
 }
-#hero-grad {
-	height: 50vh;
-	width: 100%;
-	background: rgb(2, 0, 36);
-	background: linear-gradient(
-		0deg,
-		rgba(20, 20, 20, 1) 0%,
-		rgba(0, 0, 0, 0) 100%
-	);
+#hero,
+#hero > * {
+	overflow: hidden;
+}
+
+/*===== APPLE INTELLIGENCE STYLE ANIMATION ===== */ /* Inspiration HEAVILY drawn from */ /* https://codepen.io/Bastien-D/pen/jOoGMrM */ /* Code altered using Mr. GPT and guess and check */ /* Setup changeable gradient angle property */
+@property --gradient-angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+/* Animation to change the gradient direction */ /* Tons of stops to make it seem random like */ /* Apple's AI animation */
+@keyframes rotation {
+	0% {
+		--gradient-angle: 0deg;
+	}
+	20% {
+		--gradient-angle: 80deg;
+	}
+	30% {
+		--gradient-angle: 100deg;
+	}
+	40% {
+		--gradient-angle: 160deg;
+	}
+	60% {
+		--gradient-angle: 200deg;
+	}
+	70% {
+		--gradient-angle: 260deg;
+	}
+	80% {
+		--gradient-angle: 280deg;
+	}
+	100% {
+		--gradient-angle: 360deg;
+	}
+}
+
+/* The AI border itself */
+.border {
 	position: absolute;
-	top: 50vh;
-	left: 0;
-	z-index: 2;
-}
-#hero-grad > :nth-child(1) {
-	animation: hero-scale 500ms ease-in-out forwards,
-		unblur 750ms ease-in-out forwards;
-}
-#hero .h1-container {
-	height: 50vh;
-	width: 100%;
 	top: 0;
 	left: 0;
-	display: flex;
-	align-items: end;
-	justify-content: center;
-}
-#hero h1 {
-	position: relative;
-	bottom: 0;
-	font-size: 10vh;
 	margin: 0;
-	animation: hero-scale 500ms ease-in-out forwards,
-		unblur 750ms ease-in-out forwards, moveBg 5s ease-in-out infinite;
-
-	background: linear-gradient(94deg, #0090f7, #ba62fc);
-	background-size: auto;
-	background-clip: border-box;
-	background-clip: border-box;
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	display: inline-block;
-}
-
-@media (max-width: 550px) {
-	button {
-		font-size: 1rem;
-	}
-	#hero h1 {
-		font-size: 8vh;
-	}
-}
-@keyframes unblur {
-	0% {
-		filter: blur(20px);
-		pointer-events: none;
-	}
-	100% {
-		filter: none;
-		pointer-events: all;
-	}
-}
-@keyframes hero-scale {
-	0% {
-		scale: 0;
-	}
-	100% {
-		scale: 1;
-	}
-}
-
-button {
-	background-color: transparent;
-	padding: 7px;
-	border: 1px white solid;
-	border-radius: 5px;
-	color: white;
-	margin: 5px;
-	cursor: pointer;
-	transition: all 250ms ease;
-	font-family: "sfpro";
-}
-button.primary {
-	background-color: white;
-	color: black;
-}
-button:hover {
-	scale: 1.1;
-}
-button:active {
-	scale: 0.9;
-}
-
-/* Features */
-#features {
-	height: 100vh;
+	height: 100%;
 	width: 100%;
-	padding: 0% 10%;
+	z-index: 10;
+	border-radius: 2.5rem;
 	box-sizing: border-box;
-	text-align: center;
-	display: block;
-	position: relative;
+	padding: 5px;
+	background: conic-gradient(
+		from var(--gradient-angle),
+		#ea6044,
+		#dc5083,
+		#9a6df7,
+		#3f8def,
+		#ea6044
+	);
+	animation: rotation 5s linear infinite;
+	-webkit-mask: linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	pointer-events: none;
 }
-#features .content {
+
+/* This is a conic gradient which fades in ever so slightly */ /* to give that effect like the Apple Intelligence animation */ /* when Siri is activated. */ /* See: https://www.youtube.com/shorts/88pFkRmZu84 */
+.bigMainFade {
 	position: absolute;
+	top: 0;
 	left: 0;
-	z-index: 4;
-	padding: 10%;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 11;
+	border-radius: 2.5rem;
 	box-sizing: border-box;
+	padding: 5px;
+	background: conic-gradient(
+		from var(--gradient-angle),
+		#ea6044,
+		#dc5083,
+		#9a6df7,
+		#3f8def,
+		#ea6044
+	);
+	animation: rotation 5s linear infinite,
+		bigMainFadeIn 2s ease-in-out forwards; /* Fade in from right to left */
+	-webkit-mask-image: linear-gradient(to left, transparent 0%, white 100%);
+	mask-image: linear-gradient(to left, transparent 0%, white 100%);
+	-webkit-mask-size: 200% 100%;
+	mask-size: 200% 100%;
+	-webkit-mask-position: 100% 0;
+	mask-position: 100% 0;
+	-webkit-mask-composite: xor;
+	mask-composite: exclude;
+	pointer-events: none;
+	opacity: 0.1;
 }
-#features h1.head {
+
+/*Fade-in effect just for the main border */
+#hero .border.mainBorder {
+	animation: rotation 5s linear infinite,
+		fadeInBorder 1.5s ease-in-out forwards;
+}
+
+/* ===== HERO ANIMATIONS ===== */
+@keyframes fadeInBorder {
+	0%,
+	60% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes bigMainFadeIn {
+	0% {
+		opacity: 0;
+	}
+	20% {
+		opacity: 0.4;
+	}
+	100% {
+		-webkit-mask-position: 0% 0;
+		mask-position: 0% 0;
+		opacity: 0;
+	}
+}
+
+@keyframes scaleBg {
+	from {
+		background-size: 100% 200%;
+	}
+	to {
+		background-size: 100% 100%;
+	}
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1 {
+	font-size: 7.5vw;
+	margin: 0;
+}
+
+p {
+	font-size: large;
+}
+
+/* Animated gradient text */
+.bgGradMove {
 	background: linear-gradient(
 		209deg,
 		#ea6044 39%,
@@ -145,331 +204,184 @@ button:active {
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
-	display: inline-block;
-	font-size: 4vmax;
-
 	animation: h1BgMove 4s infinite ease-in-out;
 }
+
 @keyframes h1BgMove {
 	50% {
 		background-position: 100% 100%;
 	}
 }
 
-#features-grad {
-	height: 50vh;
-	width: 100%;
-	background: rgb(2, 0, 36);
-	background: linear-gradient(
-		180deg,
-		rgba(20, 20, 20, 1) 0%,
-		rgba(0, 0, 0, 0) 100%
-	);
-	position: absolute;
-	left: 0;
-	z-index: 2;
-}
-
-/* Basic grid styling */
-.grid-container {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
-	grid-template-rows: repeat(2, auto); /* 2 rows for desktop */
-	gap: 20px;
-	margin: 20px;
-}
-
-.grid-item {
-	padding: 7.5px;
-	background-color: rgb(20, 20, 20);
-	border: 1px solid white;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	text-align: center;
-	transition: background-color 250ms ease-in-out;
-}
-
-.grid-item:hover {
-	box-shadow: 0 0 50px 5px rgba(255, 255, 255, 0.7);
+/* ===== BUTTONS ===== */
+/* I added the AI effect to the button bc why not */
+.downloadButton {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	padding: 15px;
+	border-radius: 10px;
+	background: none;
+	border: none;
 	cursor: pointer;
-	background-color: rgb(30, 30, 30);
-}
-
-.grid-item:active {
-	scale: 0.9;
-}
-
-.more-button {
-	text-align: center;
-	font-weight: bold;
-	background-color: #007bff;
 	color: white;
-	cursor: pointer;
-	border-radius: 8px;
-	padding: 5px;
-	display: none;
-}
-/* Responsiveness for tablet (iPad, split screen on windows) */
-@media (max-width: 1024px) {
-	#features {
-		text-align: center;
-	}
-	#features h1 {
-		font-size: 3vmax;
-	}
-	#features .head {
-		font-size: 8vmax !important;
-	}
-	.grid-container {
-		grid-template-columns: repeat(2, 1fr); /* 2 columns */
-		grid-template-rows: repeat(3, auto); /* 3 rows */
-	}
-	/* Hide even-numbered grid items */
-	.grid-item.hide {
-		display: none;
-	}
-
-	.more-button {
-		display: flex;
-		font-size: 2.5vmax;
-		align-items: center;
-		justify-content: center;
-		grid-column: span 2;
-	}
 }
 
-/* Responsiveness for mobile (iPhone) */
-@media (max-width: 600px) {
-	#features h1 {
-		font-size: 7vmax;
-	}
-	.grid-container {
-		grid-template-columns: 1fr; /* 1 column */
-		grid-template-rows: repeat(3, auto); /* 3 rows */
-	}
-	/* Hide even-numbered grid items */
-	/* Hide even-numbered grid items */
-	.grid-item.hide {
-		display: none;
-	}
-
-	.grid-item h1 {
-		font-size: 4vmax !important;
-	}
-
-	.more-button {
-		display: flex;
-		font-size: 3vmax;
-		align-items: center;
-		justify-content: center;
-		grid-column: span 1;
-	}
-}
-
-/* Modal for mobile */
-.modal {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.5); /* Optional: to add a background overlay */
-	z-index: 10; /* Ensure it is above other content */
-	animation: opacityChange 500ms ease;
-
-	backdrop-filter: blur(10px);
-}
-
-.modal .container {
+.downloadButton .border {
 	position: absolute;
-	z-index: 8;
-	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.modal.closing {
+	inset: 0;
+	border-radius: 10px;
 	pointer-events: none;
+	z-index: 1;
+	animation: rotation 4s linear infinite;
 }
 
-@keyframes opacityChange {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-#logo-top-left {
-	height: 4rem;
-	width: 4rem;
-	display: flex;
-	align-items: center;
-	z-index: 100;
-
-	background: linear-gradient(
-		209deg,
-		#ea6044 20%,
-		#dc5083 40%,
-		#9a6df7 60%,
-		#3f8def 80%
-	);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	font-weight: bolder;
-	cursor: pointer;
-}
-
-#navbar {
-	position: fixed;
-	top: 5px;
-	left: 50%;
-	transform: translateX(-50%);
-
-	width: calc(100vw - 10px);
-	max-width: 500px;
-	height: 6rem;
-
-	display: flex;
-	align-items: center;
-
-	z-index: 100;
-	padding: 0 1.5rem;
-	box-sizing: border-box;
-	backdrop-filter: blur(15px);
-
-	background-color: rgba(20, 20, 20, 0.8);
-	border-radius: 20px;
-	border: 1px solid white;
-
+button {
 	transition: all 250ms ease;
 }
 
-#nav-links {
-	display: flex;
-	gap: 1rem;
-	margin-left: auto;
-	margin-right: auto;
+button:active {
+	opacity: 0.8;
+	scale: 0.9;
 }
 
-#nav-links a {
-	color: white;
-	text-decoration: none;
-	font-family: "sfpro";
-	font-size: medium;
-	transition: color 250ms ease;
-	cursor: pointer;
+.buttonText {
+	position: relative;
+	z-index: 2;
 }
 
-#nav-links a:hover {
-	color: #99e4ac;
-}
+/* Thats it, really cool effect and I love it */
+/* Apple Intelligence is a trademark of Apple Inc. */
+/* Siri is a registered trademark of Apple Inc. */
 
-@media screen and (max-width: 500px) {
-	#navbar {
-		left: calc(50%);
-		width: calc(100vw - 20px);
-		transform: translateX(-50%);
-		display: block;
-		text-align: center;
-	}
-	#nav-links {
-		display: none;
-	}
-	#logo-top-left {
-		display: block;
-	}
-	.left {
-		height: 30vh;
-	}
-	.right {
-		height: 70vh;
-	}
-	#logo-top-left {
-		font-size: 1.4rem;
-		text-align: center;
-		overflow: visible;
-		height: unset;
-		width: unset;
-	}
-}
-@media screen and (max-width: 400px) {
-	.left {
-		height: 25vh;
-	}
-	.right {
-		height: 75vh;
-	}
-}
-.divider {
-	display: block;
-	margin-top: auto;
-	height: 1rem;
-	width: 2px;
-	background-color: grey;
-}
-
-#download {
-	height: 100vh;
-	width: 100%;
-	padding: 0% 10%;
-	box-sizing: border-box;
+/* ===== FEATURES SECTION ===== */
+#features {
 	text-align: center;
-	position: relative;
-	display: block;
-	clear: both;
 }
-#download .h1-container {
-	height: 50vh;
-	width: 100%;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: end;
-	justify-content: center;
-}
-#download h1 {
+
+.feature {
 	position: relative;
-	bottom: 0;
-	font-size: 10vh;
+	margin: 10px auto;
+	text-align: left;
+	max-width: 70%;
+	border: 1px solid grey;
+	border-radius: 20px;
+	padding: 40px 36px;
+	box-sizing: border-box;
+	transition: width 250ms ease, max-width 250ms ease;
+}
+
+.feature h2 {
 	margin: 0;
-	animation: hero-scale 500ms ease-in-out forwards,
-		unblur 750ms ease-in-out forwards, moveBg 5s ease-in-out infinite;
-
-	background: linear-gradient(94deg, #0090f7, #ba62fc);
-	background-size: auto;
-	background-clip: border-box;
-	background-clip: border-box;
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	display: inline-block;
 }
 
-#navbar.mobileMenuOpen {
-	height: auto;
-	padding: 1rem 1.5rem;
+.feature_flex {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: center;
 }
 
-#navbar.mobileMenuOpen p {
-	font-size: x-large;
-}
-
-#navbar.mobileMenuOpen .divider,
-#navbar.mobileMenuClosing .divider {
+.feature_content,
+.feature_image {
 	width: 50%;
-	height: 2px;
+	max-width: 50%;
 	display: block;
-	margin: 5px;
-	margin-left: auto;
-	margin-right: auto;
+	box-sizing: border-box;
 }
 
-#navbar p {
-	transition: font-size 250ms ease;
+.feature_image {
+	margin: 0 5%;
+}
+
+.feature_image img {
+	border-radius: 10px;
+	max-width: 100%;
+}
+
+/* ===== MEDIA QUERIES ===== */
+/* Large screens */
+@media screen and (max-width: 1000px) {
+	#hero {
+		background-size: 100% 200%;
+		animation: none;
+	}
+
+	h1 {
+		font-size: 10vw;
+	}
+
+	.feature {
+		max-width: 80%;
+	}
+}
+
+/* Medium screens */
+@media screen and (max-width: 750px) {
+	h1 {
+		font-size: 15vw;
+	}
+}
+@media screen and (max-width: 650px) {
+	.feature_flex {
+		flex-direction: column;
+	}
+
+	.feature_content,
+	.feature_image {
+		max-width: 100%;
+		width: 100%;
+	}
+	.feature_image {
+		margin-top: 10px;
+		scale: 1;
+	}
+}
+/* Small screens */
+@media screen and (max-width: 450px) {
+	h1 {
+		font-size: 5rem;
+		max-width: 100%;
+	}
+
+	h1.notAsBig {
+		font-size: 8vh;
+		max-width: 100%;
+	}
+
+	.feature_flex {
+		flex-direction: column;
+	}
+
+	.feature_content,
+	.feature_image {
+		max-width: 100%;
+		width: 100%;
+	}
+	.feature_image {
+		margin-top: 10px;
+		scale: 1.25;
+	}
+}
+
+/* Extra small screens */
+@media screen and (max-width: 400px) {
+	h1 {
+		font-size: 4rem;
+	}
+
+	h1.notAsBig {
+		font-size: 4rem;
+	}
+}
+
+/* Tiny screens */
+@media screen and (max-width: 350px) {
+	h1 {
+		font-size: 3rem;
+	}
+
+	h1.notAsBig {
+		font-size: 2.5rem;
+	}
 }
