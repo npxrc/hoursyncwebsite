@@ -1,0 +1,86 @@
+body {
+	font-family: "sfpro";
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+h1 {
+	font-size: 5rem;
+	background: linear-gradient(
+		209deg,
+		#ea6044 39%,
+		#dc5083 50%,
+		#9a6df7 67%,
+		#3f8def 81%
+	);
+	background-size: 200%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: h1BgMove 4s infinite ease-in-out;
+}
+
+@keyframes h1BgMove {
+	50% {
+		background-position: 100% 100%;
+	}
+}
+
+.tile {
+	max-width: 500px;
+	background-color: rgb(10, 10, 10);
+	color: white;
+	border-radius: 20px;
+	box-sizing: border-box;
+	padding: 20px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	cursor: pointer;
+	transition: all 250ms ease;
+}
+
+.tile:hover {
+	background-color: rgb(30, 30, 30);
+}
+.tile:active {
+	scale: 0.9;
+}
+
+.t {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+/* No clue why it wasnt center aligned */
+#back {
+	position: absolute;
+	bottom: 5%;
+	transform: translate(-50%, 0);
+	left: 50%;
+
+	border: none;
+	background-color: white;
+	font-family: "sfpro";
+	font-weight: 400;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 250ms ease;
+}
+#back:hover {
+	padding: 10px 15px;
+	font-size: 1.1rem;
+}
+#back:active {
+	padding: 4px 8px;
+	font-size: 0.9rem;
+}
+
+@media screen and (max-width: 500px) {
+	.tile {
+		max-width: 90%;
+	}
+}

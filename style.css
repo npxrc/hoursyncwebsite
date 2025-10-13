@@ -185,6 +185,7 @@ section {
 h1 {
 	font-size: 7.5vw;
 	margin: 0;
+	font-weight: 500;
 }
 
 p {
@@ -254,8 +255,9 @@ button:active {
 /* Apple Intelligence is a trademark of Apple Inc. */
 /* Siri is a registered trademark of Apple Inc. */
 
-/* ===== FEATURES SECTION ===== */
-#features {
+/* ===== boost productivity section ===== */
+#boost,
+#utility {
 	text-align: center;
 }
 
@@ -299,6 +301,19 @@ button:active {
 	max-width: 100%;
 }
 
+#footer {
+	max-width: 980px;
+	margin: auto;
+	color: #555555;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.links {
+	text-align: center;
+}
+.links a:visited {
+	color: white;
+}
 /* ===== MEDIA QUERIES ===== */
 /* Large screens */
 @media screen and (max-width: 1000px) {

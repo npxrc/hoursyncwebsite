@@ -1,3 +1,241 @@
-<script>
-    location.replace('https://olatheschoolsorg-my.sharepoint.com/personal/281nmp31_stu_olatheschools_org/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2F281nmp31%5Fstu%5Folatheschools%5Forg%2FDocuments%2FHourSync%2Eexe')
-</script>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Download</title>
+		<style>
+			* {
+				font-family: "sfpro";
+			}
+			body {
+				background-color: black;
+				color: white;
+				text-align: center;
+				box-sizing: border-box;
+				padding: 0 5vw;
+			}
+			h1 {
+				font-size: 4rem;
+				margin-bottom: -15px;
+				margin-top: -5px;
+				margin-left: 20px;
+			}
+			h3 {
+				font-size: 2rem;
+				margin-bottom: 5px;
+			}
+			a,
+			a:visited {
+				color: grey;
+			}
+			img {
+				max-width: 90vw;
+			}
+
+			.mica {
+				padding: 16px 16px 16px 30px;
+				border-radius: 8px;
+				border-width: thin;
+				border-style: solid;
+				border-color: #e1e6ea;
+				-webkit-backdrop-filter: blur(40px);
+				backdrop-filter: blur(40px);
+				background-color: #f7f9fcdb;
+				overflow-y: auto;
+				box-shadow: 0px 25.6px 57.6px rgb(0 0 0 / 14%),
+					0px 0px 16.4px rgb(0 0 0 / 12%);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				.mica {
+					color: white;
+					background-color: #232734db;
+					border-color: #2d2d2d1a;
+				}
+			}
+
+			#footer {
+				position: fixed;
+				bottom: 0;
+				width: 90vw;
+				margin: auto;
+				left: 50%;
+				transform: translate(-50%, 0);
+				color: #555555;
+				padding: 20px;
+				box-sizing: border-box;
+			}
+			#popup {
+				z-index: 5;
+				position: absolute;
+				width: 600px;
+				margin: auto;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				padding: 20px;
+				box-sizing: border-box;
+			}
+			#popup button {
+				cursor: not-allowed;
+			}
+			#popup button.enabled {
+				cursor: pointer;
+			}
+
+			img.icon {
+				max-width: 64px;
+				max-height: 64px;
+			}
+
+			#content {
+				transform: translate(-50%, -50%);
+				left: 50%;
+				top: 50%;
+				position: absolute;
+			}
+
+			#content.blur,
+			#footer.blur {
+				filter: blur(20px);
+			}
+			.thank-you-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			@media (max-width: 650px) {
+				#popup {
+					width: 90vw;
+					min-width: 360px;
+				}
+			}
+
+			@media (max-width: 814px) {
+				#content {
+					transform: translate(-50%, 0);
+					left: 50%;
+					top: 10%;
+				}
+				.thank-you-container {
+					flex-direction: column;
+				}
+				.thank-you-container h1 {
+					margin-left: 0;
+				}
+				#footer {
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translate(-50%, 0);
+				}
+
+				body {
+					padding: 0 2vw;
+				}
+			}
+
+			a {
+				cursor: pointer;
+			}
+
+			button {
+				cursor: pointer;
+			}
+		</style>
+		<link rel="stylesheet" href="/font.css" />
+	</head>
+	<body>
+		<div id="popup" class="mica">
+			<p style="font-size: 1.2rem">
+				If you get a warning, click the three dots, click keep, and
+				click the dropdown next to "Delete."
+				<br />
+				<br />
+				Then click "Keep Anyway".
+			</p>
+			<img
+				src="/assets/defender.png"
+				alt="How to bypass the Defender smartscreen warning"
+			/>
+			<br />
+			<button id="countdown" disabled>5</button>
+			<script>
+				let count = 5;
+				const btn = document.getElementById("countdown");
+				const interval = setInterval(() => {
+					count--;
+					btn.textContent = count;
+					if (count === 0) {
+						clearInterval(interval);
+						btn.textContent = "Continue";
+						btn.disabled = false;
+						btn.classList.add("enabled");
+						btn.onclick = () => {
+							let frame = document.createElement("iframe");
+							frame.src = "https://dl.hoursync.net/HourSync.exe";
+							frame.height = 1;
+							frame.width = 1;
+							frame.frameBorder = 0;
+							frame.style.display = "none";
+							document.body.appendChild(frame);
+
+							document
+								.getElementById("content")
+								.classList.remove("blur");
+							document
+								.getElementById("footer")
+								.classList.remove("blur");
+
+							document.getElementById("popup").remove();
+						};
+					}
+				}, 1000);
+			</script>
+		</div>
+
+		<div id="main">
+			<div id="content" class="blur">
+				<div class="thank-you-container">
+					<img class="icon" src="/favicon.ico" />
+					<h1>Thank you!</h1>
+				</div>
+				<h3>Your download has started.</h3>
+				<a href="https://dl.hoursync.net/HourSync.exe"
+					>Click here for a direct download</a
+				>
+				<br />
+				<a
+					href="https://olatheschoolsorg-my.sharepoint.com/personal/281nmp31_stu_olatheschools_org/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2F281nmp31%5Fstu%5Folatheschools%5Forg%2FDocuments%2FHourSync%2Eexe"
+				>
+					Click here for a different link
+				</a>
+				<br />
+				<br />
+				<button
+					onclick="var a = document.createElement('a'); a.href='/'; a.click()"
+				>
+					Home
+				</button>
+			</div>
+
+			<div id="footer" class="blur">
+				<p>
+					Please consider reporting HourSync as safe; it goes a long
+					way to helping HourSync reach more students and help them
+					save valuable time submitting eHours!
+					<br />
+					<br />
+					HourSync is not code signed and so Defender throws this
+					error. All code is on GitHub and is completely open source.
+					<br />
+					<br />
+					HourSync values your security and privacy, and does not send
+					your information anywhere except the district portal.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
