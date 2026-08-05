@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -11,7 +11,11 @@
 		<h1>Legal</h1>
 		<div
 			class="tile"
-			onclick="var a = document.createElement('a'); a.href='/legal/hoursync'; a.click();"
+			onclick="
+				var a = document.createElement('a');
+				a.href = '/legal/hoursync';
+				a.click();
+			"
 		>
 			<div class="t">HourSync Licence 1.0</div>
 			<div class="d">
@@ -21,7 +25,11 @@
 		</div>
 		<div
 			class="tile"
-			onclick="var a = document.createElement('a'); a.href='/legal/brand-usage'; a.click();"
+			onclick="
+				var a = document.createElement('a');
+				a.href = '/legal/brand-usage';
+				a.click();
+			"
 		>
 			<div class="t">HourSync Brand Usage Agreement</div>
 			<div class="d">
@@ -30,10 +38,27 @@
 				information of HourSync and/or Related Brands.
 			</div>
 		</div>
+		<div
+			class="tile"
+			onclick="
+				var a = document.createElement('a');
+				a.href = '/legal/speed-comparison';
+				a.click();
+			"
+		>
+			<div class="t">Speed Comparison</div>
+			<div class="d">
+				Video evidence showing the official portal's speed.
+			</div>
+		</div>
 	</body>
 	<button
 		id="back"
-		onclick="var a = document.createElement('a'); a.href='/'; a.click();"
+		onclick="
+			var a = document.createElement('a');
+			a.href = '/';
+			a.click();
+		"
 	>
 		Back
 	</button>

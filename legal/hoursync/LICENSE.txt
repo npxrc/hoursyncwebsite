@@ -1,0 +1,64 @@
+HourSync Licence v1.0.0 Terms
+IMPORTANT! READ CAREFULLY:
+THIS IS A LEGAL AGREEMENT. BY DOWNLOADING OR USING THE SOFTWARE, THE CUSTOMER AGREES TO THIS LICENCE OR THE MOST RECENT VERSION OF THE LICENCE, AND CONSENTS TO BE BOUND BY THE TERMS SET BELOW. IF YOU DO NOT UNDERSTAND THE TERMS BELOW, DO NOT USE THE SOFTWARE. IF YOU DO NOT AGREE TO THE TERMS BELOW, YOU ARE NOT PERMITTED TO USE THE SOFTWARE.
+
+Thank you for choosing to use HourSync or HourSyncCore Software! Please read the following terms before using the Software so you know what you are agreeing to.
+
+The terms of this Licence apply to:
+- any release of HourSync software, past or current,
+- any release of HourSync for Web software, past or current, and
+- any release of HourSyncCore software, past or current
+
+In the simplest language, this licence:
+- allows You to learn from and use the Software, including its source code, if you attribute credit to HourSync and Neil Patrao
+- restricts use of the Software to students in the Olathe Public School District, USD 233.
+- restricts the resale of HourSync and HourSyncCore software
+- limits liability of the Developer, Neil Patrao, for misuse of the Software
+- allows the Developer, Neil Patrao, to update these terms at any time
+1 - Parties:
+1.1: "Customer" or "You" refers to a student within a High School in the Olathe School District, who is also enrolled in a 21st Century Academy, OR an Instructor of a 21st Century Academy (see 2.3 and 2.4)
+1.2: The terms "the Developer", "npxrc", and "Neil Patrao" refer collectively to Neil Patrao, the individual who created and maintains the Software.
+
+2 - Definitions:
+2.1: "Software" refers to:
+2.1.1: any release of HourSync software, past or current,
+2.1.2: any release of HourSync for Web software, past or current, and
+2.1.3: any release of HourSyncCore software, past or current
+2.2: "Olathe Schools", "Olathe School District", and "USD 233" refer collectively to the Olathe Public School District in Olathe, Kansas.
+2.3: "21st Century Academy" refers to an academy within the Olathe School District, which is offered at one of the five participating high schools. Learn more at: https://www.olatheschools.org/21stcenturyacademies and https://www.olatheschools.org/domain/3031.
+2.4: "Instructor" and "Instructors" refer to the teacher(s) of a 21st Century Academy
+2.5: "Virtual Machine" and "VM" refer to software which mimics an operating system or environment, such as Microsoft Windows.
+2.5.1: Examples of this software include, but are not limited to: VMWare Player/Workstation, VirtualBox, Parallels, and Hypervisor
+2.6: "Fork" and "Forks" refer to modified versions of the original Software from platforms like GitHub by using the Forking feature. Learn more at https://docs.github.com/articles/fork-a-repo.
+2.7: "Licence" refers to... this! The thing you"re reading, "The HourSync and Related Software Licence Agreement."
+
+3 - Licence Grant:
+Subject to the terms and conditions of this Agreement, the Developer, Neil Patrao, grants You a non-exclusive, revocable (upon breach), non-transferrable, and non-sublicensable licence to do the following, solely for use within the Olathe School District and/or in connection with the operations of a 21st Century Academy (or as otherwise expressly permitted):
+(A) You May:
+i. Run, execute, and interact with the Software in object or executable form,
+ii. Install the Software on devices, excluding Virtual Machine devices.
+iii. Learn from and use the source code, provided you follow the terms set forth in Section 4
+(B) You may not:
+i. Sell, monetise, or sublicense the Software
+ii. Create forks of the Software in a way which makes it seem as if HourSync, or the Developer endorse it or created it (see 4.2)
+iii. Use the Software in a way which attempts to reverse engineer or interfere with anyone else"s use of any HourSync platform (including the Software) or backend service, or the 21st Century Academy"s official portal
+
+4 - Restrictions:
+4.1: Sale: The Software covered by this Licence may not be sold or resold at any time, including:
+4.1.1: forks,
+4.1.2: forks of forks, and
+4.1.3: other programs which rely on the Software"s features
+4.2: Forks and other programs which rely on or use the Software"s features must provide credit to HourSync and Neil Patrao. Learn more in the Brand Usage agreement at https://hoursync.net/legal/brand-usage
+
+5 - Limitation of Liability and Warranty:
+5.1: THE SOFTWARE GOVERNED BY THIS LICENCE IS PROVIDED ON AN "AS IS" BASIS AND "AS AVAILABLE" BASIS. THE USAGE OF THE SOFTWARE IS AT THE CUSTOMER"S OWN RISK. THE SOFTWARE PROVIDES THE ABILITY TO INTERFACE WITH AN ENDPOINT. THE CUSTOMER IS RESPONSIBLE FOR DETERMINING IF THE ENDPOINT OR THE SOFTWARE IS SECURE, AND THE CUSTOMER, NOT THE DEVELOPER, SHALL BE HELD LIABLE FOR ANY MISUSE OF THE SOFTWARE.
+5.2: THE DEVELOPER, NEIL PATRAO, DOES NOT REPRESENT OR MAKE ANY WARRANTY THAT THE SOFTWARE IS ACCURATE, MEETS THE CUSTOMER"S EXPECTATIONS, OR WILL WORK AT ANY TIME OR LOCATION.
+5.3: THE DEVELOPER, NEIL PATRAO, DISCLAIMS RESPONSIBILITY AND LIABILITY FOR THE BEHAVIOUR, USE OF, OR CONSEQUENCES OF ANY FORKED SOFTWARE. THE CUSTOMER IS RESPONSIBLE FOR ENSURING FORKED SOFTWARE COMPLIES WITH APPLICABLE LAWS, TERMS, OR OBLIGATIONS. UNDER NO CIRCUMSTANCES SHALL THE DEVELOPER, NEIL PATRAO, BE HELD RESPONSIBLE FOR SOFTWARE WHICH MODIFIES THE FUNCTIONALITY OF HOURSYNC OR HOURSYNCCORE SOFTWARE.
+
+6 - Updates
+6.1: HourSync software may be periodically updated to patch bugs or security vulnerabilities. By accepting this agreement, you agree for any Software to check for updates and prompt you to install them. 
+6.2: The Developer does not guarantee any updates or bug fixes.
+
+7 - General
+7.1: Force Majeure: Neither the Developer nor the Customer shall be in breach of the Licence or be liable to the other in the event of an act of God, natural disaster, war, terrorism, strike, government shutdown, public health emergency, or riot. 
+7.2: Khaby Lame Mechanism Clause: Neither the Developer nor the Customer shall be in breach of the Licence or be liable to the other if either party (or both) becomes eternally bound to the Khaby Lame Mechanism, forever hitting the back side of their palms against a surface, in a continuous and infinite loop.

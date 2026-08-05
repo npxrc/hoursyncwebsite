@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Speed Comparison</title>
+		<link rel="stylesheet" href="/font.css" />
+	</head>
+	<body>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: rgb(30, 30, 30);
+				color: white;
+			}
+			.indented {
+				display: block;
+				margin-left: 20px;
+			}
+			#content {
+				padding: 20px;
+				width: 80vw;
+				max-width: 1000px;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.top {
+				position: fixed;
+				top: 0;
+				display: block;
+				background-color: rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(5px);
+				color: white;
+				margin: 20px;
+				width: calc(100% - 20px - 20px);
+				border-radius: 999px;
+
+				border: 1px solid rgba(255, 255, 255, 0.5);
+			}
+			.left {
+				display: block;
+				float: left;
+				position: fixed;
+				top: 50%;
+				transform: translateY(-50%);
+				margin-left: 30px;
+				font-size: 1.2rem;
+			}
+			.right {
+				float: right;
+				margin: 20px;
+			}
+			button,
+			.outline-button {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 10px 15px;
+				border-radius: 999px;
+				font-weight: 600;
+				background: rgba(255, 255, 255, 0.12);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				transition:
+					transform 250ms ease,
+					opacity 250ms ease,
+					background 250ms ease;
+				color: white !important;
+				text-decoration: none !important;
+			}
+			.outline-button {
+				background: rgba(255, 255, 255, 0);
+				color: white;
+				border: 2px solid white;
+			}
+			.outline-button:link,
+			.outline-button:visited,
+			.outline-button:hover,
+			.outline-button:active {
+				color: white;
+				text-decoration: none;
+			}
+			video {
+				max-width: 80%;
+				display: block;
+				margin-top: 5vh;
+				margin-left: auto;
+				margin-right: auto;
+				border-radius: 50px;
+			}
+		</style>
+		<div class="top">
+			<div class="left">
+				<i>Speed Comparison</i>
+			</div>
+			<div class="right">
+				<a class="outline-button" href="/legal/">Back</a>
+			</div>
+		</div>
+		<div class="content">
+			<video src="./video.mp4" controls></video>
+			<br />
+			<p style="text-align: center"><i>This video is silent.</i></p>
+			<br />
+			<p>
+				Typing speed for username box was analysed to be 1 character per
+				0.079s (12.63 characters / second ~= 151 wpm)
+			</p>
+			<br />
+			<p>
+				Typing speed for password box was analysed to be 1 character per
+				.123s (8.14 characters / second ~= 98 wpm)
+			</p>
+		</div>
+	</body>
+</html>

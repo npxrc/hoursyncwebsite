@@ -10,15 +10,75 @@ body {
 	margin: 0;
 	overflow-x: hidden;
 }
-
-/*===== LAYOUT COMPONENTS ===== */
+body {
+	min-height: 100vh;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
 section {
-	height: 100vh;
-	width: 100vw;
+	width: 100%;
 	display: block;
 	box-sizing: border-box;
 	padding: 5vw;
+	padding-top: 2.5vw;
 	background-color: black;
+}
+.section {
+	padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 7vw, 8rem);
+	background-color: black;
+}
+.section--compact {
+	padding-top: clamp(3rem, 6vw, 5rem);
+	padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+h1 {
+	font-size: 7.5vw;
+	margin: 0;
+	font-weight: 500;
+}
+h2,
+h3,
+h4 {
+	margin: 0;
+	font-weight: 600;
+}
+p {
+	font-size: 1.1rem;
+	line-height: 1.7;
+	margin: 0;
+}
+.eyebrow {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.18rem;
+	font-weight: 600;
+	opacity: 0.6;
+	margin: 0;
+}
+.headline {
+	font-size: clamp(2.5rem, 6vw, 3.75rem);
+	font-weight: 600;
+	margin: 0.35rem 0;
+}
+.lede {
+	font-size: clamp(1.1rem, 2vw, 1.35rem);
+	line-height: 1.7;
+	opacity: 0.75;
+}
+.section-heading {
+	text-align: center;
+	display: grid;
+	gap: 0.75rem;
+	margin: auto;
+	margin-bottom: 2rem;
+	max-width: 50%;
 }
 
 /* ===== HERO SECTION ===== */
@@ -43,14 +103,13 @@ section {
 	overflow: hidden;
 }
 
-/*===== APPLE INTELLIGENCE STYLE ANIMATION ===== */ /* Inspiration HEAVILY drawn from */ /* https://codepen.io/Bastien-D/pen/jOoGMrM */ /* Code altered using Mr. GPT and guess and check */ /* Setup changeable gradient angle property */
+/*===== APPLE INTELLIGENCE STYLE ANIMATION ===== */
 @property --gradient-angle {
 	syntax: "<angle>";
 	initial-value: 0deg;
 	inherits: false;
 }
 
-/* Animation to change the gradient direction */ /* Tons of stops to make it seem random like */ /* Apple's AI animation */
 @keyframes rotation {
 	0% {
 		--gradient-angle: 0deg;
@@ -78,7 +137,6 @@ section {
 	}
 }
 
-/* The AI border itself */
 .border {
 	position: absolute;
 	top: 0;
@@ -99,15 +157,17 @@ section {
 		#ea6044
 	);
 	animation: rotation 5s linear infinite;
-	-webkit-mask: linear-gradient(#fff 0 0) content-box,
+	-webkit-mask:
+		linear-gradient(#fff 0 0) content-box,
 		linear-gradient(#fff 0 0);
-	mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
 	-webkit-mask-composite: xor;
 	mask-composite: exclude;
 	pointer-events: none;
 }
 
-/* This is a conic gradient which fades in ever so slightly */ /* to give that effect like the Apple Intelligence animation */ /* when Siri is activated. */ /* See: https://www.youtube.com/shorts/88pFkRmZu84 */
 .bigMainFade {
 	position: absolute;
 	top: 0;
@@ -127,8 +187,9 @@ section {
 		#3f8def,
 		#ea6044
 	);
-	animation: rotation 5s linear infinite,
-		bigMainFadeIn 2s ease-in-out forwards; /* Fade in from right to left */
+	animation:
+		rotation 5s linear infinite,
+		bigMainFadeIn 2s ease-in-out forwards;
 	-webkit-mask-image: linear-gradient(to left, transparent 0%, white 100%);
 	mask-image: linear-gradient(to left, transparent 0%, white 100%);
 	-webkit-mask-size: 200% 100%;
@@ -141,13 +202,12 @@ section {
 	opacity: 0.1;
 }
 
-/*Fade-in effect just for the main border */
 #hero .border.mainBorder {
-	animation: rotation 5s linear infinite,
+	animation:
+		rotation 5s linear infinite,
 		fadeInBorder 1.5s ease-in-out forwards;
 }
 
-/* ===== HERO ANIMATIONS ===== */
 @keyframes fadeInBorder {
 	0%,
 	60% {
@@ -181,64 +241,24 @@ section {
 	}
 }
 
-#web {
-	margin: 20px;
-	width: calc(100vw - 40px);
-	padding: 2.5vw;
-	height: fit-content;
-	border-radius: 20px;
-	box-sizing: border-box;
-	background: linear-gradient(to bottom right, #05142a, #1748e5);
-
-	display: grid;
-	grid-template-rows: auto auto;
-}
-#web button {
-	padding: 5px 8px;
-	background-color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-}
-#web button a {
-	text-decoration: none;
-	color: black;
-	font-size: 1.25rem;
-}
-.center {
-	width: 100%;
-	height: max-content;
-	bottom: 0;
+#web,
+#hero .heromain {
 	position: relative;
-	display: flex;
-	align-items: baseline;
 }
-.left,
-.right {
-	width: 49.99%;
-}
-.right {
-	display: flex;
-	justify-content: right;
-	align-items: end;
-}
-.left h1 {
-	font-size: 4vw;
-	font-weight: 700;
+#web {
+	margin-top: 1rem;
 }
 
-/* ===== TYPOGRAPHY ===== */
-h1 {
-	font-size: 7.5vw;
-	margin: 0;
-	font-weight: 500;
+.card {
+	position: relative;
+	padding: 1.5rem;
+	border-radius: 24px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(12px);
+	margin-bottom: -20px;
 }
 
-p {
-	font-size: large;
-}
-
-/* Animated gradient text */
 .bgGradMove {
 	background: linear-gradient(
 		209deg,
@@ -260,212 +280,359 @@ p {
 	}
 }
 
-/* ===== BUTTONS ===== */
-/* I added the AI effect to the button bc why not */
-.downloadButton {
+/* ===== CTA BUTTONS ===== */
+.cta-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.85rem 1.85rem;
+	border-radius: 999px;
+	font-size: 1rem;
+	font-weight: 600;
+	color: white;
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	transition:
+		transform 250ms ease,
+		opacity 250ms ease,
+		background 250ms ease;
+}
+#web .cta-button,
+#hero .cta-button {
+	width: 100px;
+}
+.cta-button--light {
+	background: white;
+	color: black;
+	border: none;
+}
+.cta-button:hover {
+	transform: translateY(-2px);
+	opacity: 0.9;
+}
+.outline_button .cta-button {
+	background: rgba(255, 255, 255, 0);
+	color: white;
+	border: 2px solid white;
+}
+
+#web .buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	gap: 5px;
+}
+
+/* ===== HOURSYNC FOR WEB BANNER ===== */
+.banner {
+	padding: clamp(2.5rem, 6vw, 4rem);
+	margin: clamp(1.5rem, 4vw, 3rem) auto 0;
+	width: calc(100% - 40px);
+	border-radius: 28px;
+	background: linear-gradient(140deg, #05142a 0%, #1748e5 60%, #5f6cf6 100%);
+	border: 1px solid rgba(255, 255, 255, 0.08);
 	position: relative;
 	overflow: hidden;
-	display: inline-block;
-	padding: 15px;
-	border-radius: 10px;
-	background: none;
-	border: none;
-	cursor: pointer;
-	color: white;
 }
-
-.downloadButton .border {
+.banner::after {
+	content: "";
 	position: absolute;
-	inset: 0;
-	border-radius: 10px;
-	pointer-events: none;
-	z-index: 1;
-	animation: rotation 4s linear infinite;
-}
-
-button {
-	transition: all 250ms ease;
-}
-
-button:active {
-	opacity: 0.8;
-	scale: 0.9;
-}
-
-.buttonText {
-	position: relative;
-	z-index: 2;
-}
-
-/* Thats it, really cool effect and I love it */
-/* Apple Intelligence is a trademark of Apple Inc. */
-/* Siri is a registered trademark of Apple Inc. */
-
-/* ===== boost productivity section ===== */
-#boost,
-#utility {
-	text-align: center;
-}
-
-.feature {
-	position: relative;
-	margin: 10px auto;
-	text-align: left;
-	max-width: 70%;
-	border: 1px solid grey;
-	border-radius: 20px;
-	padding: 40px 36px;
-	box-sizing: border-box;
-	transition: width 250ms ease, max-width 250ms ease;
-
-	background: linear-gradient(
-		to bottom right,
-		rgba(255, 255, 255, 0),
-		rgba(23, 72, 229, 0.2)
+	inset: -40%;
+	background: radial-gradient(
+		circle at top right,
+		rgba(255, 255, 255, 0.3) 0,
+		rgba(255, 255, 255, 0) 60%
 	);
+	opacity: 0.3;
+	pointer-events: none;
+}
+.banner__layout {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2.5rem;
+	align-items: center;
+	justify-content: space-between;
+}
+.banner__copy {
+	max-width: 35rem;
+	display: grid;
+	gap: 0.75rem;
+}
+.banner__headline {
+	font-size: clamp(2.7rem, 5vw, 3.9rem);
+	margin: 0;
+	font-weight: 700;
+}
+.banner__lede {
+	font-size: clamp(1.05rem, 2vw, 1.25rem);
+	opacity: 0.75;
+}
+.banner__cta {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	min-width: 12rem;
 }
 
-.feature h2 {
+/* ===== FEATURE & CONTENT GRID ===== */
+.tile-grid {
+	display: grid;
+	gap: clamp(1.75rem, 4vw, 2.5rem);
+	max-width: 1100px;
+	margin: 0 auto;
+}
+.tile-grid--three {
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.tile {
+	position: relative;
+	padding: clamp(1.75rem, 4vw, 2.5rem);
+	border-radius: 24px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(12px);
+}
+.tile--accent {
+	background: linear-gradient(
+		160deg,
+		rgba(66, 128, 235, 0.35) 0%,
+		rgba(134, 122, 246, 0.15) 100%
+	);
+	border-color: rgba(134, 122, 246, 0.4);
+}
+.tile h3 {
+	font-size: clamp(1.4rem, 3vw, 1.8rem);
+	margin-bottom: 0.75rem;
+}
+.tile p {
+	opacity: 0.8;
+}
+
+/* ===== FEATURE CARDS ===== */
+.feature-card {
+	position: relative;
+	display: grid;
+	gap: clamp(1.5rem, 3vw, 2rem);
+	padding: clamp(2rem, 4vw, 2.8rem);
+	border-radius: 28px;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(12px);
+}
+.feature-card--highlight {
+	background: linear-gradient(
+		150deg,
+		rgba(66, 128, 235, 0.55) 0%,
+		rgba(134, 122, 246, 0.45) 70%,
+		rgba(63, 141, 239, 0.6) 100%
+	);
+	border: none;
+}
+.feature-card__content h3 {
+	font-size: clamp(1.5rem, 3vw, 2rem);
+	margin-bottom: 0.65rem;
+}
+.feature-card__content p {
+	opacity: 0.82;
+}
+.feature-card__media {
 	margin: 0;
 }
+.feature-card__media img {
+	width: 100%;
+	border-radius: 18px;
+	box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+}
 
-.feature_flex {
+/* ===== PERFORMANCE PANEL ===== */
+.section--surface {
+	position: relative;
+}
+.section--surface::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: radial-gradient(
+		circle at top,
+		rgba(63, 141, 239, 0.25),
+		transparent 55%
+	);
+	opacity: 0.7;
+	pointer-events: none;
+}
+.section--surface .section-heading {
+	position: relative;
+	z-index: 1;
+}
+.stat-board {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	gap: clamp(1.5rem, 4vw, 2rem);
+	padding: clamp(2.5rem, 6vw, 3.5rem);
+	border-radius: 32px;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	max-width: 900px;
+	margin: 0 auto;
+	backdrop-filter: blur(14px);
+}
+.stat-bar {
+	--fill: 1;
+	display: grid;
+	gap: 0.75rem;
+}
+.stat-bar__header {
 	display: flex;
-	flex-direction: row;
+	justify-content: space-between;
+	font-weight: 600;
+	font-size: 1.05rem;
+}
+.stat-bar__value {
+	opacity: 0.7;
+}
+.stat-bar__track {
+	position: relative;
+	width: 100%;
+	height: 0.75rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.12);
+	overflow: hidden;
+}
+.stat-bar__fill {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(
+		90deg,
+		rgba(66, 128, 235, 1) 0%,
+		rgba(134, 122, 246, 1) 100%
+	);
+	transform: scaleX(var(--fill));
+	transform-origin: left;
+}
+.stat-bar__caption {
+	font-size: 0.95rem;
+	opacity: 0.6;
+}
+.stat-bar--auto {
+	--fill: 0.18;
+}
+.stat-bar--saved {
+	--fill: 0.3;
+}
+.stat-bar--portal {
+	--fill: 1;
+}
+.stat-bar--portal .stat-bar__fill {
+	background: grey;
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.section--media .section-heading {
+	text-align: left;
+	margin: 0 0 clamp(2rem, 5vw, 3rem);
+}
+.media-layout {
+	display: grid;
+	gap: clamp(2rem, 6vw, 4rem);
 	align-items: center;
-	text-align: center;
+	max-width: 1100px;
+	margin: 0 auto;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.media-layout__copy {
+	display: grid;
+	gap: 1rem;
+}
+.media-layout__visual img {
+	border-radius: 28px;
+	box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
 }
 
-.feature_content,
-.feature_image {
-	width: 50%;
-	max-width: 50%;
-	display: block;
-	box-sizing: border-box;
+/* ===== OPEN SOURCE SECTION ===== */
+.section--gradient {
+	padding-top: clamp(3.5rem, 7vw, 6rem);
+	padding-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+.gradient-card {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: clamp(2rem, 6vw, 3rem);
+	align-items: center;
+	background: linear-gradient(135deg, #0d1387 0%, #867af6 100%);
+	padding: clamp(2.5rem, 6vw, 4rem);
+	border-radius: 32px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+.gradient-card__copy {
+	display: grid;
+	gap: 1.25rem;
+	max-width: 35rem;
+}
+.gradient-card__visual {
+	display: flex;
+	justify-content: flex-end;
+}
+.gradient-card__visual img {
+	max-width: 160px;
+	filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
 }
 
-.feature_image {
-	margin: 0 5%;
+/* ===== FOOTNOTES ===== */
+.section--footnotes {
+	padding-top: clamp(2rem, 5vw, 3rem);
+	padding-bottom: clamp(3rem, 6vw, 4rem);
+}
+.section--footnotes details {
+	max-width: 900px;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+.footnotes-trigger {
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 1.05rem;
+}
+.footnotes-list {
+	list-style: none;
+	margin: 1.5rem 0 0;
+	padding: 0;
+	display: grid;
+	gap: 1rem;
+	font-size: 0.95rem;
+	opacity: 0.7;
+}
+.footnote-symbol {
+	font-weight: 600;
+	margin-right: 0.5rem;
 }
 
-.feature_image img {
-	border-radius: 10px;
-	max-width: 100%;
+/* ===== FOOTER ===== */
+.site-footer {
+	padding: 2rem clamp(1.5rem, 7vw, 8rem) 3rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.site-footer__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	max-width: 1100px;
+	margin: 0 auto;
+	opacity: 0.7;
+	font-size: 0.95rem;
+}
+.site-footer__link:hover {
+	text-decoration: underline;
 }
 
-#footer {
-	max-width: 980px;
-	margin: auto;
-	color: #555555;
-	padding: 20px;
-	box-sizing: border-box;
-}
-.links {
-	text-align: center;
-}
-.links a:visited {
-	color: white;
-}
-/* ===== MEDIA QUERIES ===== */
-/* Large screens */
-@media screen and (max-width: 1000px) {
-	#hero {
-		background-size: 100% 200%;
-		animation: none;
-	}
-
-	h1 {
-		font-size: 10vw;
-	}
-
-	.feature {
-		max-width: 80%;
-	}
-}
-
-/* Medium screens */
-@media screen and (max-width: 750px) {
-	h1 {
-		font-size: 15vw;
-	}
-}
-@media screen and (max-width: 650px) {
-	.feature_flex {
-		flex-direction: column;
-	}
-
-	.feature_content,
-	.feature_image {
-		max-width: 100%;
-		width: 100%;
-	}
-	.feature_image {
-		margin-top: 10px;
-		scale: 1;
-	}
-	.left h1 {
-		font-size: 5vh;
-	}
-}
-/* Small screens */
-@media screen and (max-width: 450px) {
-	h1 {
-		font-size: 5rem;
-		max-width: 100%;
-	}
-
-	h1.notAsBig {
-		font-size: 8vh;
-		max-width: 100%;
-	}
-
-	.feature_flex {
-		flex-direction: column;
-	}
-
-	.feature_content {
-		max-width: 100%;
-		width: 100%;
-	}
-	.feature_image {
-		display: none;
-	}
-	.center {
-		padding: 20px;
-		box-sizing: border-box;
-		flex-direction: column;
-	}
-	.left,
-	.right {
-		width: 100%;
-		display: block;
-	}
-}
-
-/* Extra small screens */
-@media screen and (max-width: 400px) {
-	h1 {
-		font-size: 4rem;
-	}
-
-	h1.notAsBig {
-		font-size: 4rem;
-	}
-}
-
-/* Tiny screens */
-@media screen and (max-width: 350px) {
-	h1 {
-		font-size: 3rem;
-	}
-
-	h1.notAsBig {
-		font-size: 2.5rem;
-	}
-}
-
-/* Modal at the end because it's not that useful */
-
+/* ===== MODAL ===== */
 .modal {
 	display: flex;
 	justify-content: center;
@@ -478,10 +645,8 @@ button:active {
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 10;
 	animation: opacityChange 500ms ease;
-
 	backdrop-filter: blur(10px);
 }
-
 .modal .container {
 	position: absolute;
 	z-index: 8;
@@ -490,16 +655,83 @@ button:active {
 	border-radius: 8px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
 .modal.closing {
 	pointer-events: none;
 }
-
 @keyframes opacityChange {
 	0% {
 		opacity: 0;
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 1000px) {
+	#hero {
+		background-size: 100% 200%;
+		animation: none;
+	}
+	h1 {
+		font-size: 10vw;
+	}
+}
+@media screen and (max-width: 900px) {
+	.banner__layout {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.banner__cta {
+		justify-content: flex-start;
+	}
+	.site-footer__inner {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.section-heading {
+		max-width: 70%;
+	}
+}
+@media screen and (max-width: 750px) {
+	h1 {
+		font-size: 15vw;
+	}
+	.section {
+		padding: clamp(3rem, 10vw, 5rem) clamp(1.5rem, 6vw, 3.5rem);
+	}
+}
+@media screen and (max-width: 650px) {
+	.media-layout {
+		grid-template-columns: 1fr;
+	}
+	.gradient-card {
+		text-align: left;
+	}
+}
+@media screen and (max-width: 450px) {
+	h1 {
+		font-size: 5rem;
+		max-width: 100%;
+	}
+	.banner {
+		width: calc(100% - 24px);
+		padding: 2.5rem 1.75rem;
+	}
+	.banner__headline {
+		font-size: 2.6rem;
+	}
+	.feature-card__media img {
+		width: 100vw;
+	}
+}
+@media screen and (max-width: 400px) {
+	h1 {
+		font-size: 4rem;
+	}
+}
+@media screen and (max-width: 350px) {
+	h1 {
+		font-size: 3rem;
 	}
 }

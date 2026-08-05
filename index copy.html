@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>HourSync</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<link rel="stylesheet" href="font.css" />
+		<link rel="stylesheet" href="style copy.css" />
+
+		<meta name="author" content="Neil Patrao" />
+		<meta name="title" content="HourSync" />
+		<meta
+			name="description"
+			content="A modern way to submit eHours. Built for your future."
+		/>
+
+		<meta property="og:title" content="HourSync" />
+		<meta
+			property="og:description"
+			content="A modern way to submit eHours. Built for your future."
+		/>
+		<meta
+			property="og:image"
+			content="https://hoursync.net/assets/meta.png"
+		/>
+	</head>
+	<body>
+		<section id="web">
+			<div class="center">
+				<div class="left">
+					<h1>HourSync for Web</h1>
+					<h2 style="margin-top: -5px"><i>Beta</i></h2>
+					<p style="margin-top: -15px">
+						Experience the benefits of HourSync in the convenience
+						of your browser.
+					</p>
+				</div>
+				<div class="right">
+					<button>
+						<a href="https://web.hoursync.net">Try it out</a>
+					</button>
+				</div>
+			</div>
+		</section>
+		<!-- first we want to have a hero -->
+		<section id="hero">
+			<div class="border mainBorder"></div>
+			<div class="bigMainFade"></div>
+			<div class="heromain">
+				<h1>HourSync</h1>
+				<p>
+					A <b class="bgGradMove">modern</b> way to submit eHours.
+					Built for your future.
+				</p>
+				<br />
+				<button
+					class="downloadButton"
+					onclick="location.href='/download'"
+				>
+					<div class="border"></div>
+					<span class="buttonText">Download</span>
+				</button>
+			</div>
+		</section>
+		<section id="features" style="height: auto">
+			<h1 class="notAsBig" style="text-align: center">
+				<b class="bgGradMove" style="display: inline">Boost</b>
+				your productivity
+				<b style="display: inline; font-weight: 400; font-size: 1rem"
+					>◊</b
+				>
+			</h1>
+			<br />
+			<div class="feature">
+				<h2>Auto Login</h2>
+				<div class="feature_flex">
+					<div class="feature_content">
+						<p>
+							HourSync works with the eHours portal just as
+							ClassLink works with Canvas, Flex, and StudentVue.
+							Sign in once and HourSync will sign you in
+							automatically. Every time.†
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="feature">
+				<h2>Drafts</h2>
+				<div class="feature_flex">
+					<div class="feature_content">
+						<p>
+							We all know the pain of submitting a lengthy eHours
+							request, only to have it lost since you were signed
+							out. HourSync saves your progress as you go, so you
+							can come back to it later.
+						</p>
+					</div>
+					<div class="feature_image">
+						<img src="./featurescontent/drafts.png" alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="feature" style="border: none">
+				<div
+					class="border"
+					style="border-radius: 20px; padding: 3px"
+				></div>
+				<h2 class="bgGradMove">AI Assistant</h2>
+				<div class="feature_flex">
+					<div class="feature_content">
+						<p>
+							HourSync has an optional, built-in AI sidebar of
+							your choice when submitting eHour requests, so it
+							becomes a breeze to write a description of your
+							eHours.
+						</p>
+					</div>
+					<div class="feature_image">
+						<img src="featurescontent/aiAssistant.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="easy" style="height: auto">
+			<h1 class="notAsBig" style="text-align: center">
+				Fast and easy to use
+			</h1>
+
+			<br />
+			<br />
+			<p style="max-width: 70%; margin: auto; text-align: center">
+				<b> Cut to the chase: </b>
+				We already know you're a student. Cut the login process down and
+				make signing in quick.
+				<br />
+				<br />
+
+				With Auto-Login enabled, HourSync is up to 6 times faster at
+				logging in, and up to 3 times faster with Auto-Login enabled.‡
+			</p>
+			<br />
+
+			<div class="performance">
+				<p>With Auto-Login enabled</p>
+				<progress value="0.125"></progress>
+				<style></style>
+				<p class="minor">6x faster</p>
+				<p>With Saved Password</p>
+				<progress value="0.5"></progress>
+				<p class="minor">3x faster</p>
+				<p>District Portal</p>
+				<progress value="1"></progress>
+				<p class="minor">Around 10 seconds</p>
+			</div>
+			<style>
+				#easy p {
+					font-size: 1.3rem;
+				}
+				.performance {
+					width: 900px;
+					max-width: 80%;
+					margin: auto;
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+				}
+				.performance p {
+					font-size: 1.5rem;
+					font-weight: 600;
+					margin-bottom: 0px;
+				}
+				p.minor {
+					font-weight: 400;
+					opacity: 0.7;
+					margin-top: -15px;
+					margin-bottom: 5px;
+				}
+				progress {
+					height: 10px;
+					border-radius: 12px;
+					background-color: white;
+					appearance: none;
+					-webkit-appearance: none;
+					border: none;
+					margin-bottom: 5px;
+				}
+
+				progress::-moz-progress-bar {
+					border-radius: 12px;
+				}
+
+				progress::-webkit-progress-bar {
+					background-color: #eee;
+					border-radius: 12px;
+				}
+
+				progress:first-of-type::-webkit-progress-value {
+					background: linear-gradient(
+						90deg,
+						rgba(66, 128, 235, 1) 0%,
+						rgba(134, 122, 246, 1) 100%
+					);
+					border-radius: 12px;
+				}
+
+				progress:first-of-type::-moz-progress-bar {
+					background: linear-gradient(
+						90deg,
+						rgba(66, 128, 235, 1) 0%,
+						rgba(134, 122, 246, 1) 100%
+					);
+					border-radius: 12px;
+				}
+
+				progress:first-of-type {
+					accent-color: #4280eb;
+				}
+			</style>
+			<br />
+			<br />
+
+			<img
+				src="/assets/app-login.png"
+				alt="A photo of the HourSync login screen"
+				style="max-width: 60%; margin-left: 20%"
+			/>
+			<br />
+			<br />
+			<p style="max-width: 70%; margin: auto; text-align: center">
+				HourSync is built on Microsoft's WinUI 3 and provides a clean,
+				minimalistic, and easy to navigate user interface
+			</p>
+		</section>
+
+		<section id="foss" style="height: auto; max-width: 70%; margin: auto">
+			<div class="center">
+				<div class="left">
+					<h1>Free and Open Source</h1>
+					<p>
+						HourSync is and will always remain free to use.
+						<br />
+						You can also view the source code on
+						<a href="https://github.com/npxrc/HourSync">GitHub.</a>
+					</p>
+				</div>
+				<div class="right">
+					<img src="/assets/github-mark-white.png" alt="" />
+				</div>
+			</div>
+		</section>
+
+		<hr style="width: 80%; margin-top: 80px; visibility: hidden" />
+		<div
+			id="footer"
+			style="
+				max-width: 980px;
+				margin: auto;
+				opacity: 0.6;
+				padding: 20px;
+				box-sizing: border-box;
+			"
+		>
+			◊ Feature images enlarged to showcase feature itself.
+			<br />
+			<br />
+			† Before HourSync automatically signs you in, you must log into the
+			app once. User credentials are stored in the Windows Credential
+			Store. Can't believe I have to say this but your credentials have to
+			be correct for HourSync to automatically sign you in. If you change
+			your password, you must sign into HourSync again to update your
+			credentials.
+			<br />
+			<br />
+			‡ Claims based on the following data: a) time to navigate on
+			official portal from root page (/) to the eHours list page
+			(/Student/studentEHours.php) is approx. 10 seconds; b) time for
+			human to launch HourSync and log into the Home page with a saved
+			password was 03.009 seconds; c) time to launch HourSync and for Auto
+			Login to log in was 01.780 seconds. Tests conducted on beta software
+			of HourSync and using version 141.0.7390.77 of Google Chrome.
+			<br />
+			<br />
+			GitHub and the Octocat logo are property of GitHub Inc and
+			Microsoft. Google and Google Chrome are property of Alphabet Inc.
+			<div class="links">
+				<a href="/legal/" style="color: white !important">Legal</a>
+			</div>
+		</div>
+		<script src="/modal.js"></script>
+	</body>
+</html>

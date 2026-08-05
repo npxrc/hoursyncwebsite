@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<script>
@@ -33,24 +33,34 @@
 		/>
 	</head>
 	<body>
-		<section id="web">
-			<div class="center">
-				<div class="left">
-					<h1>HourSync for Web</h1>
-					<h2 style="margin-top: -5px"><i>Beta</i></h2>
-					<p style="margin-top: -15px">
+		<section id="web" class="banner">
+			<div class="banner__layout">
+				<div class="banner__copy">
+					<p class="eyebrow">Now in public beta</p>
+					<h1 class="banner__headline">HourSync for Web</h1>
+					<p class="banner__lede">
 						Experience the benefits of HourSync in the convenience
 						of your browser.
 					</p>
 				</div>
-				<div class="right">
-					<button>
-						<a href="https://web.hoursync.net">Try it out</a>
-					</button>
+				<div class="buttons">
+					<div class="banner__cta">
+						<a
+							class="cta-button cta-button--light"
+							href="https://web.hoursync.net"
+						>
+							Try it out
+						</a>
+					</div>
+					<br />
+					<div class="banner__ct outline_button">
+						<a href="/web/" class="cta-button cta-button--light">
+							Learn More
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
-		<!-- first we want to have a hero -->
 		<section id="hero">
 			<div class="border mainBorder"></div>
 			<div class="bigMainFade"></div>
@@ -61,103 +71,327 @@
 					Built for your future.
 				</p>
 				<br />
-				<button
-					class="downloadButton"
-					onclick="location.href='/download'"
+				<div
+					class="banner__ct outline_button mobile"
+					style="margin-bottom: 10px"
 				>
-					<div class="border"></div>
-					<span class="buttonText">Download</span>
-				</button>
+					<a
+						class="cta-button cta-button--light"
+						href="https://web.hoursync.net"
+					>
+						Web Version
+					</a>
+				</div>
+				<div class="banner__ct">
+					<a
+						href="/download/"
+						class="cta-button cta-button--light downloadButton"
+					>
+						Download
+					</a>
+				</div>
 			</div>
 		</section>
-		<section id="features" style="height: auto">
-			<h1 class="notAsBig" style="text-align: center">
-				<b class="bgGradMove" style="display: inline">Boost</b>
-				your productivity
-				<b style="display: inline; font-weight: 400; font-size: 1rem"
-					>◊</b
-				>
-			</h1>
-			<br />
-			<div class="feature">
-				<h2>Auto Login</h2>
-				<div class="feature_flex">
-					<div class="feature_content">
+		<section id="overview" class="section section--compact">
+			<div class="section-heading">
+				<p class="eyebrow">Why HourSync</p>
+				<h2 class="headline">
+					Designed to make submitting eHours effortless.
+				</h2>
+				<p class="lede">
+					HourSync anticipates the friction in your workflow—speeding
+					up logins, protecting your progress, and keeping everything
+					feeling familiar.
+				</p>
+			</div>
+			<div class="tile-grid tile-grid--three">
+				<article class="tile">
+					<h3>Familiar by design</h3>
+					<p>
+						Built with Microsoft's WinUI&nbsp;3 for a clean, native
+						experience that feels right at home on Windows.
+					</p>
+				</article>
+				<article class="tile tile--accent">
+					<h3>Secure by default</h3>
+					<p>
+						Credentials stay in the Windows Credential Manager, so
+						Auto Login works without storing passwords in the app
+						itself.<sup>†</sup>
+					</p>
+				</article>
+				<article class="tile">
+					<h3>Made for students</h3>
+					<p>
+						Crafted by students for students, with shortcuts and
+						guidance that match how you already work.
+					</p>
+				</article>
+			</div>
+		</section>
+		<section id="features" class="section section--cards">
+			<div class="section-heading">
+				<p class="eyebrow">Features</p>
+				<h2 class="headline">Boost your productivity.<sup>◊</sup></h2>
+				<p class="lede">
+					Three core experiences keep you focused on the request
+					instead of the portal.
+				</p>
+			</div>
+			<div class="tile-grid tile-grid--three">
+				<article class="feature-card">
+					<div class="feature-card__content">
+						<h3>Auto Login</h3>
 						<p>
-							HourSync works with the eHours portal just as
-							ClassLink works with Canvas, Flex, and StudentVue.
 							Sign in once and HourSync will sign you in
-							automatically. Every time.†
+							automatically every time, so you can jump straight
+							to submitting.<sup>†</sup>
 						</p>
 					</div>
-				</div>
-			</div>
-			<div class="feature">
-				<h2>Drafts</h2>
-				<div class="feature_flex">
-					<div class="feature_content">
+				</article>
+				<article class="feature-card">
+					<div class="feature-card__content">
+						<h3>Drafts</h3>
 						<p>
-							We all know the pain of submitting a lengthy eHours
-							request, only to have it lost since you were signed
-							out. HourSync saves your progress as you go, so you
-							can come back to it later.
+							HourSync saves each request as you go, so an
+							accidental sign-out never means starting over.
 						</p>
 					</div>
-					<div class="feature_image">
-						<img src="./featurescontent/drafts.png" alt="" />
-					</div>
-				</div>
-			</div>
-			<div class="feature" style="border: none">
-				<div
-					class="border"
-					style="border-radius: 20px; padding: 3px"
-				></div>
-				<h2 class="bgGradMove">AI Assistant ‡</h2>
-				<div class="feature_flex">
-					<div class="feature_content">
+				</article>
+				<article class="feature-card feature-card--highlight">
+					<div class="feature-card__content">
+						<h3>Optional AI Assistant</h3>
 						<p>
-							HourSync has an optional, built-in AI sidebar of
-							your choice when submitting eHour requests, so it
-							becomes a breeze to write a description of your
+							Bring your preferred AI sidebar along to help you
+							polish your request, or disable the feature
+							completely if you prefer to work without it.
+						</p>
+					</div>
+				</article>
+			</div>
+			<div class="tile-grid" style="margin-top: 40px">
+				<h2 style="text-align: center">And many more features...</h2>
+				<div class="tile-grid twocolumns">
+					<style>
+						.tile-grid.twocolumns {
+							grid-template-columns: repeat(2, 1fr);
+							gap: 35px 10px;
+						}
+					</style>
+					<!-- trip calculator -->
+					<article class="card">
+						<b>Trip Calculator</b>
+						<p>
+							Automatically calculate the duration of trips and
+							customize it based on your trip.
+						</p>
+					</article>
+					<!-- request splitting -->
+					<article class="card">
+						<b>Request Splitting</b>
+						<p>
+							Automatically split larger requests into smaller
+							ones so you can submit large projects or trips for
 							eHours.
 						</p>
-					</div>
-					<div class="feature_image">
-						<img src="featurescontent/aiAssistant.png" alt="" />
-					</div>
+					</article>
+					<!-- localization -->
+					<article class="card">
+						<b>Localization</b>
+						<p>
+							Experience HourSync in English and German, with more
+							languages coming soon.*
+							<br />
+							<i style="font-size: 0.7rem"
+								>*I gotta find a translator bro</i
+							>
+						</p>
+					</article>
+					<!-- automatic request grouping -->
+					<article class="card">
+						<b>Automatic Request Grouping</b>
+						<p>
+							HourSync automatically recognizes similar requests
+							and groups them together on the home page.
+						</p>
+					</article>
+					<!-- leaderboard -->
+					<article class="card">
+						<b>Leaderboard</b>
+						<p>
+							See how your eHours compare to your peers on the
+							official leaderboard.
+						</p>
+					</article>
+					<!-- heic to png converter -->
+					<article class="card">
+						<b>HEIC to PNG Converter</b>
+						<p>
+							HourSync automatically converts HEIC images to PNG
+							format when submitting your request so your
+							instructor and you can see it.
+						</p>
+					</article>
+					<!-- save and load drafts -->
+					<article class="card">
+						<b>Save and Load Drafts</b>
+						<p>
+							Not only can you save your progress, but you can
+							also load previous drafts to continue working on
+							them.
+						</p>
+					</article>
+					<!-- save to onedrive -->
+					<article class="card">
+						<b>Save to OneDrive</b>
+						<p>
+							Save drafts to OneDrive for easy access and backup.
+						</p>
+					</article>
 				</div>
 			</div>
 		</section>
-
-		<div
-			id="footer"
-			style="
-				max-width: 980px;
-				margin: auto;
-				opacity: 0.4;
-				padding: 20px;
-				box-sizing: border-box;
-			"
-		>
-			◊ Feature images enlarged to showcase feature itself.
-			<br />
-			<br />
-			† Before HourSync automatically signs you in, you must log into the
-			app once. User credentials are stored in the Windows Credential
-			Store. Can't believe I have to say this but your credentials have to
-			be correct for HourSync to automatically sign you in. If you change
-			your password, you must sign into HourSync again to update your
-			credentials.
-			<br />
-			<br />
-			‡ AI Assistant coming in a future update.
-			<br />
-			<br />
-			<div class="links">
-				<a href="/legal/">Legal</a>
+		<section id="performance" class="section section--surface">
+			<div class="section-heading">
+				<p class="eyebrow">Performance</p>
+				<h2 class="headline">
+					Cut the login time dramatically.<sup>‡</sup>
+				</h2>
+				<p class="lede">
+					With Auto Login enabled, HourSync gets you to your eHours in
+					seconds. The comparison below mirrors the testing you can
+					expect on a typical student device.
+				</p>
 			</div>
-		</div>
+			<div class="stat-board">
+				<div class="stat-bar stat-bar--auto">
+					<div class="stat-bar__header">
+						<span>Auto Login enabled</span>
+						<span class="stat-bar__value">≈1.8 s</span>
+					</div>
+					<div class="stat-bar__track">
+						<div class="stat-bar__fill"></div>
+					</div>
+					<p class="stat-bar__caption">Up to 6x faster</p>
+				</div>
+				<div class="stat-bar stat-bar--saved">
+					<div class="stat-bar__header">
+						<span>Saved password</span>
+						<span class="stat-bar__value">≈3.0 s</span>
+					</div>
+					<div class="stat-bar__track">
+						<div class="stat-bar__fill"></div>
+					</div>
+					<p class="stat-bar__caption">Up to 3x faster</p>
+				</div>
+				<div class="stat-bar stat-bar--portal">
+					<div class="stat-bar__header">
+						<span>District portal</span>
+						<span class="stat-bar__value">≈10.0 s</span>
+					</div>
+					<div class="stat-bar__track">
+						<div class="stat-bar__fill"></div>
+					</div>
+					<p class="stat-bar__caption">Baseline navigation</p>
+				</div>
+			</div>
+		</section>
+		<section id="experience" class="section section--media">
+			<div class="media-layout">
+				<div class="media-layout__copy">
+					<p class="eyebrow">Experience</p>
+					<h2 class="headline">
+						A clean interface that keeps you oriented.
+					</h2>
+					<p class="lede">
+						HourSync keeps the important actions within reach with a
+						minimal, WinUI-powered layout that matches the rest of
+						Windows.
+						<br />
+						<i style="font-size: 0.7rem"
+							>Image coming soon I promise</i
+						>
+					</p>
+				</div>
+				<!-- <div class="media-layout__visual">
+					<img
+						src="/assets/app-home.png"
+						alt="HourSync home screen"
+					/>
+				</div> -->
+			</div>
+		</section>
+		<section id="foss" class="section section--gradient">
+			<div class="gradient-card">
+				<div class="gradient-card__copy">
+					<p class="eyebrow">Open Source</p>
+					<h2 class="headline">Free today, free tomorrow.</h2>
+					<p class="lede">
+						HourSync will always remain free to use. Explore the
+						roadmap, contribute, or file an issue on GitHub.
+					</p>
+					<a
+						class="cta-button"
+						href="https://github.com/npxrc/HourSync"
+					>
+						View on GitHub
+					</a>
+				</div>
+				<div class="gradient-card__visual">
+					<img
+						src="/assets/github-mark-white.png"
+						alt="GitHub mark"
+					/>
+				</div>
+			</div>
+		</section>
+		<section id="footnotes" class="section section--footnotes">
+			<details>
+				<summary class="footnotes-trigger">
+					Statements and methodology
+				</summary>
+				<ul class="footnotes-list">
+					<li>
+						<span class="footnote-symbol">◊</span>
+						Feature imagery enlarged to showcase the experience.
+					</li>
+					<li>
+						<span class="footnote-symbol">†</span>
+						Before HourSync automatically signs you in, you must log
+						in once. Credentials are stored securely in the Windows
+						Credential Manager. If you change your password, sign in
+						again to refresh Auto Login.
+					</li>
+					<li>
+						<span class="footnote-symbol">‡</span>
+						Claims based on internal timing: navigating the district
+						portal from root to the eHours list page took
+						approximately 10 seconds; logging in with a saved
+						password took 3.009 seconds; Auto Login to the Home page
+						completed in 1.780 seconds. Tests were conducted on beta
+						software of HourSync and on Google Chrome 141.0.7390.77.
+					</li>
+					<li>
+						GitHub and the Octocat logo are property of GitHub Inc.
+						and Microsoft. Google and Google Chrome are property of
+						Alphabet Inc.
+					</li>
+				</ul>
+			</details>
+		</section>
+		<footer id="footer" class="site-footer">
+			<div class="site-footer__inner">
+				<p class="site-footer__copy">
+					Copyright © <span id="current-year"></span> HourSync. All
+					rights reserved.
+				</p>
+				<a class="site-footer__link" href="/legal/">Legal</a>
+			</div>
+		</footer>
+		<script>
+			document.getElementById("current-year").textContent =
+				new Date().getFullYear();
+		</script>
 		<script src="/modal.js"></script>
 	</body>
 </html>

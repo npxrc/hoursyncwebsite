@@ -5,6 +5,7 @@ function isPhone() {
 	return mobileUA || smallScreen;
 }
 if (isPhone()) {
+	document.querySelector(".downloadButton").href = "#";
 	document.querySelector(".downloadButton").onclick = () => {
 		showModal(
 			"hoursync.net/<br>download",
@@ -15,6 +16,7 @@ if (isPhone()) {
 	!("gpu" in navigator) &&
 	navigator.userAgent.includes("Windows NT 6.3")
 ) {
+	document.querySelector(".downloadButton").href = "#";
 	document.querySelector(".downloadButton").onclick = () => {
 		showModal(
 			"Update OS",
@@ -29,6 +31,7 @@ function showModal(h1Content, pContent) {
 	let h1 = create("h1");
 	let p = create("p");
 	let button = create("button");
+	button.className = "cta-button cta-button--light";
 
 	div.classList.add("modal");
 	cont.classList.add("container");
@@ -42,6 +45,7 @@ function showModal(h1Content, pContent) {
 
 	cont.append(h1);
 	cont.append(p);
+	cont.append(create("br"));
 	cont.append(button);
 	div.append(cont);
 
